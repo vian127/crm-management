@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>珀莱雅</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<!-- 背景图片 -->
+	<img class="float_pic" src="images/bg1.jpg" alt="背景图片"/>
+	<div class="container">
+		<div class="success_top"></div>
+		<div class="success_content">
+			<span class="font16">手好快！<br/>恭喜成功抢得</span><br/>
+			<span class="font11 color2 line_h15">9元换购<br/>靓白肌密泡沫洁面乳 120g<br/>（原价90元）</span><br/><br/>
+			凭兑换码<br/>
+			<span class="font16 color2">12348 4848</span><br/><br/>
+			前往全国商场专柜<br/>
+			完成换购<br/>
+			<a class="btn success_btn" href="index.html"><img src="images/btn9.png" alt="返回首页"/></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//调整布局
+		$(function(){rs();});
+		$(window).resize(function(){rs();});
+		var rs=function(){
+			var dw=document.documentElement.clientWidth;
+			var dh=document.documentElement.clientHeight;
+			$("body").css({"font-size":1*dw/360+"em"});
+			var ratio=100;
+			if(dh/dw*720<1136){
+				ratio=dh/dw*720/1136*100;
+			}
+			
+		};
+	</script>
+</body>
+</html>

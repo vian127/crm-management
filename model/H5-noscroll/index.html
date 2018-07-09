@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="we"/>
+        <meta name="keywords" content="兰芝,芝心试用"/>
+        <meta name="description" content="2016-03芝心试用"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>兰芝中国</title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container">
+            <!-- loading页面 -->
+            <!-- <div id="loading_box" class="page hide">
+                <div class="loadimg"></div>
+                <div class="loading_div">
+                    <span>loading</span>
+                    <span class="loading_num">0</span>
+                    <span>%</span>
+                </div>
+            </div> -->
+            <!-- 首页 -->
+            <div class="page page1">
+                <!-- 头部 -->
+                <div class="header">
+                    <h3 class="tit">
+                        <!-- 返回前页 -->
+                        <img src="images/logo.png" alt="LANEIGE"/>
+                        <!-- 规则按钮 -->
+                        <a class="btn3 js_rule_btn" href="javascript:;" title="申领规则">申领规则</a>
+                    </h3>
+                    <img class="top_pic" src="images/5.png" alt="针对缺水、黯沉、上妆烦恼的三大肌肤困扰，兰芝准备了深受大家喜爱的兰芝明星体验套装。令肌肤充满活力能量！水润肌肤，水漾生活！"/>
+                </div>
+                <!-- 中间 -->
+                <div class="content">
+                    <div class="prod_box">
+                        <div class="prod_div prod_div1">
+                            <img src="images/1.png" alt="新水酷特润霜"/>
+                            <div class="pr_det">
+                                <a class="btn4 js_drop_btn" href="javascript:;" title="收起">新水酷特润霜</a>
+                                <p>长效锁水保湿<br/>改善肌肤干燥</p>
+                            </div>
+                        </div>
+                        <div class="prod_div prod_div2">
+                            <img src="images/2.png" alt="新水酷特润精华露"/>
+                            <div class="pr_det">
+                                <a class="btn4 js_drop_btn" href="javascript:;" title="收起">新水酷特润精华露</a>
+                                <p>天才保湿<br/>沁润水活肌</p>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <div class="prod_div prod_div3">
+                            <img src="images/3.png" alt="致美紧颜修护精华液"/>
+                            <div class="pr_det">
+                                <a class="btn4 js_drop_btn" href="javascript:;" title="收起">致美紧颜修护精华液</a>
+                                <p>重焕紧致<br/>细腻、盈润、青春光彩</p>
+                            </div>
+                            
+                        </div>
+                        <div class="prod_div prod_div4">
+                            <img src="images/4.png" alt="气垫BB霜"/>
+                            <div class="pr_det">
+                                <a class="btn4 js_drop_btn" href="javascript:;" title="收起">气垫BB霜</a>
+                                <p>三大创新科技<br/>成就完美妆容</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- 底部 -->
+                <div class="footer">
+                    <a class="btn1 btn_type1 js_get_btn" href="javascript:;" title="免费申领">免费申领</a>
+                </div>
+            </div>
+            <!-- 规则 -->
+            <div class="page page2 hide">
+                <div class="header">
+                    <h3 class="tit">
+                        <!-- 规则关闭 -->
+                        <a class="btn3 js_close_btn" href="javascript:;" title="关闭规则"><img src="images/icon6.png" alt="关闭规则"/></a>
+                    </h3>
+                </div>
+                <div class="content"><img class="js_rule_pic" src="images/rule.png" alt="活动规则"></div>
+            </div>
+        </section>
+        <!-- 提示信息 -->
+        <section id="atten_box" class="center_box">
+            <div class="top_div"></div>
+            <p class="p1">
+                <span class="type3"></span>
+            </p>
+            <p class="p2"><a class="btn3" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+            <p class="p3">对不起，<br> 本次兰芝活动已经结束了，<br>请继续关注兰芝的其他活动。</p>
+        </section>
+        <section id="bg_div" class="center_box"></section>
+        <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript" src="js/frame.js"></script>
+        <script type="text/javascript">
+            // 提示信息
+            // 获取连接数据
+            var link_obj=GetRequest();
+            var openid=link_obj["openid"]?link_obj["openid"]:"";
+            // 获取页面url数据
+            function GetRequest(){ 
+                var url = location.search; //获取url中"?"符后的字串 
+                var theRequest = new Object(); 
+                if (url.indexOf("?") != -1) { 
+                    var str = url.substr(1); 
+                    strs = str.split("&"); 
+                    for(var i = 0; i < strs.length; i ++) { 
+                        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+                    }
+                } 
+                return theRequest; 
+            };
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: encodeURI(window.location.href),
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    var ratio=1;
+                    if(dh/fw*720<1136){
+                        ratio=dh/fw*720/1136;
+                        $(".prod_box").css({"margin-bottom":1.5*ratio+"em"});
+                        $(".prod_div3 .pr_det").css({"top":17*ratio+"em"});
+                    }
+                    if(dw>limit){
+                        $(".center_box").css({"left":(dw-limit)/2+"px"});
+                    };
+                    $(".tit>img").width(50*ratio+"%");
+                    $(".top_pic").width(80*ratio+"%");
+                    $(".tit>a").css({"font-size":+0.7*ratio+"em"});
+                    $(".header").css({"padding-top":+1*ratio+"em"});
+                    $(".tit").css({"padding":+1*ratio+"em"});
+                    $(".header>p").css({"margin-top":+1.5*ratio+"em"});
+                    
+                    $(".prod_div1").css({"width":29*ratio+"%"});
+                    $(".prod_div2").css({"width":15*ratio+"%"});
+                    $(".prod_div3").css({"width":19*ratio+"%"});
+                    $(".prod_div4").css({"width":28*ratio+"%"});
+                    $(".pr_det").css({"font-size":0.8*ratio+"em"});
+                    $(".btn_type1").css({"font-size":1*ratio+"em"});
+                    $(".js_rule_pic").css({"width":100*ratio+"%"});
+                },
+                // ajax 请求地址
+                ajax_link: ["http://weapp.wemediacn.com/laneige/applyinfo/index/index_api"],
+                // 居中显示
+                toCenter:function(obj,par){
+                    var dh=par.height();
+                    var oh=obj.outerHeight();
+                    obj.css({"margin-top": (dh-oh)/2-50+"px"});
+                },
+            }
+            $(function(){
+                // 绑定滚动
+                $m.rs();
+                $("#atten_box").fadeOut(200,function(){
+                    showFunc();
+                });
+                m.setcss({"butbg":"#4278b9"});
+                // if(openid && openid!=""){
+                //     getUserInfo();
+                // }else{
+                //     window.location.href="http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html";
+                // }
+                // 关闭规则
+                $(".js_close_btn").on("click",function(){
+                    $(".page1").show();
+                    $(".page2").hide();
+                });
+                
+                // 绑定下拉
+                $(".js_drop_btn").on("click",function(){
+                    dropFunc($(this));
+                });
+                // 申领
+                $(".js_get_btn").on("click",function(){
+                    // 已申领
+                    window.location.href="form.html?openid="+openid;
+                });
+                $(window).on("resize",function(){$m.rs()});
+            });
+            // 首页动画
+            function showFunc(){
+                $(".tit").delay(500).fadeIn(800,function(){
+                    $(".prod_div3").delay(500).animate({"opacity":1},800,function(){
+                        $(".prod_div3").children(".pr_det").children("p").slideUp(500,function(){
+                            $(".prod_div3").find("a").addClass("js_now");
+                            $(".prod_div1").delay(500).animate({"opacity":1},800,function(){
+                                $(".prod_div1").children(".pr_det").children("p").slideUp(500,function(){
+                                    $(".prod_div1").find("a").addClass("js_now");
+                                    $(".prod_div4").delay(500).animate({"opacity":1},800,function(){
+                                        $(".prod_div4").children(".pr_det").children("p").slideUp(500,function(){
+                                            $(".prod_div4").find("a").addClass("js_now");
+                                            $(".prod_div2").delay(500).animate({"opacity":1},800,function(){
+                                                $(".prod_div2").children(".pr_det").children("p").slideUp(500,function(){
+                                                    $(".prod_div2").find("a").addClass("js_now");
+                                                    $(".btn_type1").animate({"opacity":1},800,function(){
+                                                        $(".btn_type1").animate({"opacity":1},800);
+                                                        $(".top_pic").animate({"opacity":1},800);
+                                                        $(".tit>a").animate({"opacity":1},800);
+                                                        // // 查看規則
+                                                        $(".js_rule_btn").on("click",function(){
+                                                            $(".page1").hide();
+                                                            $(".page2").show();
+                                                        });
+                                                    })
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            }
+            // 上拉下拉
+            function dropFunc(obj){
+                var a=obj,b=obj.siblings("p");
+                if(a.hasClass("js_now")){
+                    a.removeClass("js_now");
+                    b.stop(true).slideDown(200);
+                }else{
+                    a.addClass("js_now");
+                    b.stop(true).slideUp(200);
+                }
+            }
+// 请求数据
+function getUserInfo(){
+    $.ajax({
+        type: "POST",
+        url: $m.ajax_link[0],
+        data:{"v":1,"openid":openid,"url":$m.share_href},
+        dataType: "json",
+        success: function(data){
+            if(data["status"]==1){
+                // 未申领
+                $("#atten_box").fadeOut(200,function(){
+                    showFunc();
+                });
+                if(data["share"]!="undefined" && data["share"]["info"]!="undefined"){
+                    shareFunc(data["share"]["info"]);
+                }
+            }else if(data["status"]==2){
+                // 已申领
+                window.location.href="success.html?openid="+openid;
+            }else if(data["status"]==3){
+                // 参数错误
+                $("#atten_box").children(".p2").show().siblings("p").hide();
+            }else if(data["status"]==4){
+                // 参数错误
+                $("#atten_box").children(".p2").show().siblings("p").hide();
+            }else if(data["status"]==11){
+                // 活动结束
+                $("#atten_box").children(".p3").show().siblings("p").hide();
+            }else if(data["status"]==12){
+                // 域名不合法
+                msg("您的链接地址不正确，请用官方链接打开。","确定",function(){
+                    if(typeof WeixinJSBridge!=="undefined"){
+                        WeixinJSBridge.call( 'closeWindow');
+                    }else{
+                        window.close();
+                    }
+                },true);
+            }else if(data["status"]==13){
+                // 未关注
+
+            }else{
+                // 非法入侵
+                msg("您的链接地址不正确，请用官方链接打开。","确定",function(){
+                    if(typeof WeixinJSBridge!=="undefined"){
+                        WeixinJSBridge.call( 'closeWindow');
+                    }else{
+                        window.close();
+                    }
+                },true);
+            }
+        },
+        error: function(XMLHttpRequest,textStatus,errorThrown){
+            $("#atten_box").children(".p2").show().siblings("p").hide();
+        }
+    });
+}
+/*----------------微信分享-----------------*/
+// 分享函数
+function shareFunc(arr){
+    wx.config({
+        debug: false,
+        appId: arr["appid"], 
+        timestamp: arr["timestamp"], 
+        nonceStr: arr["nonceStr"], 
+        signature: arr["signature"], 
+        jsApiList:[
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'hideMenuItems',
+        ] 
+    });
+    wx.ready(function(){
+
+        wx.onMenuShareTimeline({
+            title: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享标题
+            link: "http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html", // 分享链接
+            imgUrl: "http://bos.bj.baidubce.com/we-sh2/laneige/applyinfo/yun/201603/images/share.jpg", // 分享图标
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享标题
+            desc: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享描述
+            link: "http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html", // 分享链接
+            imgUrl: "http://bos.bj.baidubce.com/we-sh2/laneige/applyinfo/yun/201603/images/share.jpg", // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        // 隐藏按钮
+        wx.hideMenuItems({
+            menuList: [
+                'menuItem:readMode', // 阅读模式
+                'menuItem:copyUrl' ,// 复制链接
+                'menuItem:share:qq',//分享qq
+                'menuItem:share:weiboApp',//分享微博
+                'menuItem:share:facebook',//分享到FB
+                'menuItem:jsDebug',//调试
+                'menuItem:editTag',//编辑标签
+                'menuItem:delete',//删除
+                'menuItem:originPage',//原网页
+                'menuItem:openWithQQBrowser',//qq浏览器打开
+                'menuItem:openWithSafari',//safari浏览器打开
+                'menuItem:share:email',//邮件
+                'menuItem:share:brand',//特殊公众号
+            ],
+            success: function (res) {
+                console.log("ok");
+            },
+            fail: function (res) {
+                console.log(JSON.stringify(res));
+            }
+        });
+    });
+}
+        </script>
+    </body>
+   
+</html>
+
+ 

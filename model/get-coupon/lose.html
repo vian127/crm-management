@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>珀莱雅</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<!-- 背景图片 -->
+	<img class="float_pic" src="images/bg1.jpg" alt="背景图片"/>
+	<div class="container">
+		<div class="lose_top"></div>
+		<div class="lose_content">
+			<span class="font16 color2">手慢了！</span><br/>
+			<span class="font11 line_h15">该产品已被</span><br/>
+			<span class="font16 color2">抢光啦</span><br/>
+			<span class="font11">等待下一轮</span><br/>
+			<span class="font11">疯抢的开始吧</span><br/>
+			<a class="btn lose_btn" href="index.html"><img src="images/btn9.png" alt="返回首页"/></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//调整布局
+		$(function(){rs();});
+		$(window).resize(function(){rs();});
+		var rs=function(){
+			var dw=document.documentElement.clientWidth;
+			var dh=document.documentElement.clientHeight;
+			$("body").css({"font-size":1*dw/360+"em"});
+			var ratio=100;
+			if(dh/dw*720<1136){
+				ratio=dh/dw*720/1136*100;
+			}
+		};
+	</script>
+</body>
+</html>

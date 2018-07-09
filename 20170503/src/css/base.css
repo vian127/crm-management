@@ -1,0 +1,171 @@
+/*
+    #author     lut000
+    #date       2017/05/05
+*/
+@charset "utf-8";
+
+*{margin: 0;padding: 0;word-break: break-all;}
+html,body{font-size: 20px;}
+body{font-family:"Microsoft YaHei","SimHei";color: #242526}
+h1,h2,h3,h4,h5{font-weight: normal;}
+img{width:100%;border:none}
+a{text-decoration: none;}
+button{border-style: none;background-color: transparent;outline: none;cursor: pointer;}
+li{list-style: none;}
+#view-section{
+    -webkit-box-sizing:border-box;-moz-box-sizing:border-box;
+    min-width: 720px;
+    padding:  1.5em 2rem;
+	background-color:#fff;
+}
+
+.info-list{margin-top: 1rem;}
+.info-list>li{float: left;width: 30%;margin-right: 2%;margin-bottom: 0.5rem;}
+.info-list>li>label{display: inline-block;width: 8em}
+.select-div{padding-bottom: 1.5rem;border-bottom: 1px solid #dedede;text-align: center;}
+.select-div>select{font-size: 1rem;padding: 0.2em;margin-right: 0.5rem;}
+.select-div>button{font-size: 1rem;padding: 0.3em 1em;border-radius: 0.1em;background-color: #3FA5EC;color: #fff;}
+.select-div>button:hover{background-color: #196BFF;}
+
+
+.content{padding: 1rem 0}
+.table{width: 100%;border-collapse: collapse;border:1px solid #333;}
+.table td{padding: 0.3rem 0.5rem}
+.table thead{background-color: #eaeaea}
+.table>thead td{padding: 0.5rem;border:1px solid #333;font-weight: 500;}
+.table>tbody td{border:1px solid #333;}
+
+
+
+
+
+
+.fixed-ele{z-index: 1000;position: fixed;left: 0;top: 0;right: 0;width: 100%;max-width: 720px;height: 100%;margin: auto;}
+.bg-section{display: none;z-index: 10;background: #000;opacity: 0.4}
+#atten-box{
+	position: fixed;
+	left: 0;
+    right: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+    margin: auto;
+	z-index: 2000;
+}
+.loading-div{
+    -webkit-box-sizing:border-box;-moz-box-sizing:border-box;
+    position: absolute;left: 0;top: 46%;width: 100%;padding: 0em 1em;z-index: 20;text-align: center;}
+.loading-div>.p2{display: none;}
+.loading-div>.p3{
+	display: none;
+    line-height: 2em;
+}
+.loading-bg{position: absolute;z-index: 10;left: 0;top: 0;height: 100%;width: 100%;background-color: #000;opacity: 0.4;}
+
+/*------通用------*/
+
+.btn1,.btn1:visited,.btn1:hover,.btn1:active{color: #fff;}
+.btn2,.btn2:visited,.btn2:hover,.btn2:active{color: #000;}
+.f_l{float: left;}
+.f_r{float: right;}
+.clear:after{display: block;content: "";visibility: hidden;clear: both;}
+.hide{display: none;}
+.over-hidden{overflow: hidden;}
+
+/*---------css3动画----------*/
+.type2{
+	display: inline-block;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    box-shadow: 0 -30px 0px 3px #02CFFF,-21px -21px 1px 2px #3ACDEF,-30px 0px 1px 1.5px #62CAE2,-21px 21px 1px 1.2px #71D6ED,0px 30px 2px 1px #8CDCEF,21px 21px 2px 1px #A5E1EF,30px 0px 3px #BCE4ED,21px -21px 4px #C0E7F0;
+    animation: loading 1s steps(8, start) infinite;
+    -ms-animation: loading 1s steps(8, start) infinite;
+    -webkit-animation: loading 1s steps(8, start) infinite;
+    -moz-animation: loading 1s steps(8, start) infinite;
+    -o-animation: loading 1s steps(8, start) infinite;
+}
+.type3{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    box-shadow: 0 -30px 0px 3px #fff,-21px -21px 1px 2px #fff,-30px 0px 1px 1.5px #fff,-21px 21px 1px 1.2px #fff,0px 30px 2px 1px #fff,21px 21px 2px 1px #fff,30px 0px 3px #fff,21px -21px 4px #fff;
+    animation: loading 1s steps(8, start) infinite;
+    -ms-animation: loading 1s steps(8, start) infinite;
+    -webkit-animation: loading 1s steps(8, start) infinite;
+    -moz-animation: loading 1s steps(8, start) infinite;
+    -o-animation: loading 1s steps(8, start) infinite;
+}
+@keyframes loading2{
+    0%{
+        background-image: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#666));
+    }
+    100%{
+        background-image: -webkit-gradient(linear,0 0,0 bottom,from(#df3),to(#598));
+    }
+}
+@keyframes loading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-ms-keyframes loading{
+    0%{
+        -ms-transform: rotate(0deg);
+    }
+    100%{
+        -ms-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes loading{
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes loading{
+    0%{
+        -moz-transform: rotate(0deg);
+    }
+    100%{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-o-keyframes loading{
+    0%{
+        -o-transform: rotate(0deg);
+    }
+    100%{
+        -o-transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/*媒体查询*/
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 720px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>珀莱雅</title>
+	<link rel="stylesheet" type="text/css" href="css/swiper3.08.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/swiper3.0.8.min.js"></script>
+</head>
+<body>
+	<!-- 隐藏域here -->
+	<!-- 当前的礼品种类 1、2、3-->
+	<input id="product_type" type="hidden" nowType="3"/>
+	<img class="float_pic" src="images/bg2.jpg" alt="背景图片"/>
+	<div id="index_container" class="container">
+		<div class="index_top">
+			<a class="my_list" href="my_list.html"><img src="images/btn3.jpg" alt="我的疯抢"/></a><br/>
+			<a class="rule_spn" href="javascript:;"><img src="images/btn4.jpg" alt="疯抢攻略"/></a>
+		</div>
+		<div class="product">
+			<!-- 倒计时 -->
+			<div class="time_box">
+				<span>倒计时</span>
+				<span class="time_spn">02:05:08</span>
+			</div>
+			<div class="time_box">
+				<span>倒计时</span>
+				<span class="time_spn">02:05:08</span>
+			</div>
+			<div class="time_box">
+				<span>倒计时</span>
+				<span class="time_spn">02:05:08</span>
+			</div>
+			<!-- 产品切换 -->
+			<div class="swiper-container">
+	            <div class="swiper-wrapper">
+	                <div class="swiper-slide">
+	                	<div class="pic_txt_div1">
+	                    	<span class="txt_pan1">抢购价<span class="price_spn">9</span>元</span><br/>
+	                    	<span class="txt_pan2">原价90元</span><br/>
+	                    	<span class="txt_pan3">还剩<span style="border-left: 1px solid #555">2</span><span>3</span><span>5</span>套</span><br/>
+	                    </div>
+	                   	<img src="images/prod1.png" class="pro_pic1" alt="靓白肌密泡沫界面乳 120g"/>
+	                   	<br class="clear"/>
+	                </div>
+	                <div class="swiper-slide">
+	                	<div class="pic_txt_div2">
+	                    	<span class="txt_pan1">抢购价<span class="price_spn">15</span>元</span><br/>
+	                    	<span class="txt_pan2">原价146元</span><br/>
+	                    	<span class="txt_pan3">还剩<span>2</span><span>1</span><span>5</span>套</span><br/>
+	                    </div>
+	                   	<img src="images/prod2.png" class="pro_pic2" alt="靓白肌密超级名模BB霜 40g"/>
+	                   	<br class="clear"/>
+	                </div>
+	                <div class="swiper-slide">
+	                	<div class="pic_txt_div3">
+	                    	<span class="txt_pan1">抢购价<span class="price_spn">24</span>元</span><br/>
+	                    	<span class="txt_pan2">原价239元</span><br/>
+	                    	<span class="txt_pan3">还剩<span>2</span><span>5</span><span>5</span>套</span><br/>
+	                    </div>
+	                   	<img src="images/prod3.png" class="pro_pic3" alt="早晚水组合装 180ml+180ml"/>
+	                   	<br class="clear"/>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- 切换按钮 -->
+	        <div class="control">
+	            <a id="prev" href="javascript:;"><img src="images/prev.png" alt="上一个"/></a>
+	            <a id="next" href="javascript:;"><img src="images/next.png" alt="下一个"/></a>
+	        </div>
+	        <!-- 按钮框 -->
+	        <div class="btn_box">
+	        	<a class="btn js_btn"><img src="images/btn6.png" alt="立即开抢"/></a>
+	        	<a class="btn js_btn"><img src="images/btn6.png" alt="立即开抢"/></a>
+	        	<a class="btn js_btn"><img src="images/btn6.png" alt="立即开抢"/></a>
+	        	<!-- 判断——是CRM会员但尚未绑定 -->
+	        	<div class="hide_box crm_div">
+	        		<span class="hide_txt">即刻完成美妍社会员绑定参与疯抢</span>
+	        		<a class="bind_btn" href="form.html">立即绑定</a>
+	        	</div>
+	        	<!-- 判断——已经注册了粉丝会员的 -->
+	        	<div class="hide_box fs_div">
+	        		<span class="hide_txt">你目前是珀莱雅微信粉丝会员，<br/>靠柜完成首单购买即可成为<span>美妍社会员</span>，参与疯抢</span>
+	        	</div>
+	        </div>
+		</div>
+	</div>
+	<!-- 规则框 -->
+	<div class="rule_box">
+		<div class="rule_div">
+			<img class="rule_pic" src="images/rule.jpg" alt="规则"/>
+			<span class="close_spn"><img src="images/icon.png" alt="关闭"/></span>
+			<a class="return_home js_return" href="javascript:;"><img src="images/btn9.png" alt="返回首页"/></a>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

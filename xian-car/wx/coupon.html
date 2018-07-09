@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="lut"/>
+        <meta name="keywords" content="城际快客,出行,约车"/>
+        <meta name="description" content="线上拼车平台"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>weui</title>
+        <link rel="stylesheet" type="text/css" href="css/weui.min.css">
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="css/member_center.css">
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container">
+            <!-- 我的优惠券 -->
+            <div class="page page6">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back" href="member_center.html?page=4" title="返回" data-return="page4"><img src="images/icon10.png" alt="返回"></a>
+                        <span>我的优惠券</span>
+                        <a class="btn2 r_btn js_add_coupon" href="javascript:;" title="添加" data-return="page4">添加</a>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box">
+                        <ul class="coupon_list js_coupon_list">
+                            <li>
+                                <div class="txt_r"><label class="font08">编号：</label><span class="font08">HG23456777</span></div>
+                                <div><label class="v_base">优惠券</label><span class="font18 color6 v_base">5</span><span class="v_base">元</span></div>
+                                <div class="txt_r"><span style="margin-right: 2em;">满20元可以使用</span></div>
+                                <div class="font08">有效期至 2016-01-21</div>
+                            </li>
+                            <li>
+                                <div class="txt_r"><label class="font08">编号：</label><span class="font08">HG23456777</span></div>
+                                <div><label class="v_base">优惠券</label><span class="font18 color6 v_base">5</span><span class="v_base">元</span></div>
+                                <div class="txt_r"><span style="margin-right: 2em;">满20元可以使用</span></div>
+                                <div class="font08">有效期至 2016-01-21</div>
+                            </li>
+                            <li>
+                                <div class="txt_r"><label class="font08">编号：</label><span class="font08">HG23456777</span></div>
+                                <div><label class="v_base">优惠券</label><span class="font18 color6 v_base">5</span><span class="v_base">元</span></div>
+                                <div class="txt_r"><span style="margin-right: 2em;">满20元可以使用</span></div>
+                                <div class="font08">有效期至 2016-01-21</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 添加优惠券 -->
+            <div class="page page7">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back" href="javascript:;" title="返回" data-return="page6"><img src="images/icon10.png" alt="返回"></a>
+                        <span>添加优惠券</span>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box">
+                        <div class="weui_cells weui_cells_form">
+                            <div class="weui_cell">
+                                <div class="weui_cell_hd">
+                                    <label class="weui_label">编号：</label>
+                                </div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input class="weui_input" type="tel" placeholder="请输入qq号">
+                                </div>
+                            </div>
+                            <div class="weui_cell">
+                                <div class="weui_cell_hd">
+                                    <label class="weui_label">密码：</label>
+                                </div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input class="weui_input" type="tel" placeholder="请输入qq号">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="txt_r">
+                            <a href="javascript:;" class="btn2" title="扫一扫添加">扫一扫添加</a>
+                        </div>
+                        <br/>
+                        <a href="javascript:;" class="weui_btn weui_btn_my1 b_color3" title="确定">确定</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 优惠券说明 -->
+            <div class="page page8">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back" href="javascript:;" title="返回" data-return="page7"><img src="images/icon10.png" alt="返回"></a>
+                        <span>使用规则</span>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box">
+                        <h3>代金券使用说明</h3>
+                        <ul>
+                            <li>1、本券结账前请出示。</li>
+                            <li>2、本券不兑换现金、不找零。</li>
+                            <li>3、使用本券消费时，不含酒水。</li>
+                            <li>4、使用本券消费时不另开发票。</li>
+                            <li>5、本券只限在注明日期内有效。</li>
+                            <li>6、本券盖章签字后方可使用。</li>
+                            <li>7、以上条款，本酒店有最终解释权。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 提示信息 -->
+        <section id="atten_box" class="center_box">
+            <p class="p1">
+                <span class="type3"></span>
+            </p>
+            <p class="p2"><a class="btn1" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+            <p class="p3">对不起，<br> 本次活动已经结束了，<br>请继续关注悦诗风吟的其他活动。</p>
+        </section>
+        <section id="bg_div" class="center_box"></section>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript">
+            // 滚动变量
+            var myScroll1,myScroll2,myScroll3;
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: window.location.href,
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var a=this;
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    if(dw>limit){
+                        $(".center_box").css({"left":(dw-limit)/2+"px"});
+                    };
+                    myScroll1.refresh();
+                    myScroll2.refresh();
+                    myScroll3.refresh();
+                },
+                // ajax 请求地址
+                ajax_link: ["deal_info","is_set_info"],
+                // 居中显示
+                toCenter:function(obj,par){
+                    var dh=par.height();
+                    var oh=obj.outerHeight();
+                    obj.css({"margin-top": (dh-oh)/2-50+"px"});
+                },
+                // 设置宽高
+                setHeight:function(obj,k){
+                    var ow=obj.width();
+                    console.log(ow);
+                    var num=parseInt(ow*k);
+                    obj.height(num+"px");
+                },
+                // 直接到达
+                toDirect:function(obj,func){
+                    obj.css({"left":0});
+                    if(typeof func==="function" && func instanceof Function){
+                        func();
+                    }
+                },
+                // 到指定页面
+                toPage:function(obj,func){
+                    obj.animate({"left":0},200,function(){
+                        if(typeof func==="function" && func instanceof Function){
+                            func();
+                        }
+                    });
+                },
+                // 到指定页面
+                toNext:function(obj,func){
+                    obj.animate({"left":0},200,function(){
+                        if(typeof func==="function" && func instanceof Function){
+                            func();
+                        }
+                    });
+                },
+                // 回返前页
+                toPrev:function(obj,func){
+                    obj.animate({"left":"100%"},200,function(){
+                        if(typeof func==="function" && func instanceof Function){
+                            func();
+                        }
+                    });
+                },
+                // 初始化显示
+                showPage:function(func){
+                    $("#atten_box").fadeOut(200,function(){
+                        if(typeof func==="function" && func instanceof Function){
+                            func();
+                        }
+                    });
+                    $("#bg_div").fadeOut(400);
+                }
+            }
+            $(function(){
+                // 绑定滚动
+                myScroll1=new IScroll('.page6',{mouseWheel: true,hideScrollbar: true,click: true,bounce:false});
+                myScroll2=new IScroll('.page7',{mouseWheel: true,hideScrollbar: true,click: true,bounce:false});
+                myScroll3=new IScroll('.page8',{mouseWheel: true,hideScrollbar: true,click: true,bounce:false});
+                $m.showPage(function(){
+                    var a=$(".page6");
+                    a.show();
+                    $m.rs();
+                    $(".page").show();
+                });
+                // 使用详情
+                $(".js_coupon_list>li").on("click",function(){
+                    $m.toNext($(".page7"),function(){
+                        myScroll2.refresh();
+                    });
+                });
+                // 添加优惠券
+                $(".js_add_coupon").on("click",function(){
+                    $m.toNext($(".page8"),function(){
+                        myScroll3.refresh();
+                    });
+                });
+                // 绑定返回事件
+                $(".js_back").on("click",function(){
+                    $m.toPrev($(this).parents(".page"));
+                });
+                $(window).on("resize",function(){$m.rs()});
+            });
+        </script>
+    </body>
+   
+</html>

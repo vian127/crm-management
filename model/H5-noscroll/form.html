@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="we"/>
+        <meta name="keywords" content="兰芝,芝心试用"/>
+        <meta name="description" content="2016-03芝心试用"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>兰芝中国</title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container" class="hide">
+            <!-- 首页 -->
+            <div class="page page3">
+                <!-- 头部 -->
+                <div class="header">
+                    <h3 class="tit">申领信息登记</h3>
+                </div>
+                <!-- 中间 -->
+                <div class="content">
+                    <p>请正确填写您的资料<br/>以便我们为您寄出奖品</p>
+                    <div class="form_div">
+                        <input class="user_info input_area info_sty" type="text" placeholder="姓名"/>
+                        <div class="code_box">
+                            <input class="js_mobile user_info input_area info_sty" type="text" placeholder="手机号码" maxlength="11" pattern="[0-9]*"/>
+                            <input id="checkbut" class="input_area" type="button" value="获取验证码">
+                        </div>
+                        <input class="user_info input_area info_sty" type="text" placeholder="验证码" pattern="[0-9]*"/>
+                        <select id="prov" class="prov select_area select_ele info_sty">
+                            <option value="" selected disabled>省份</option>
+                        </select>
+                        <select id="city" class="city select_area select_ele info_sty">
+                            <option value="" selected disabled>城市</option>
+                        </select>
+                        <input class="user_info input_area info_sty" type="text" placeholder="邮寄地址"/>
+                        <input class="user_info input_area js_postcode info_sty" type="text" placeholder="邮政编码" pattern="[0-9]*"/>
+                    </div>
+                </div>
+                <!-- 底部 -->
+                <div class="footer">
+                    <a class="btn1 btn_type1 js_sub" href="javascript:;" title="确认提交">确认提交</a>
+                </div>
+            </div>
+            <!-- 解决frame.js点击关闭触发影响 -->
+            <div class="bg_div"></div>
+        </section>
+        <!-- 提示信息 -->
+        <section id="atten_box" class="center_box">
+            <div class="top_div"></div>
+            <p class="p1">
+                <span class="type3"></span>
+            </p>
+            <p class="p2"><a class="btn3" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+            <p class="p3">对不起，<br> 本次兰芝活动已经结束了，<br>请继续关注兰芝的其他活动。</p>
+        </section>
+        <section id="bg_div" class="center_box"></section>
+        <script type="text/javascript" src="js/frame.js"></script>
+        <script src="http://api.map.baidu.com/api?v=2.0&ak=5ZmIO6bXbDtdllzdMZwfXmFm"></script>
+        <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript" src="js/city.js"></script>
+        <script type="text/javascript">
+            // 提示信息
+            // 获取连接数据
+            var link_obj=GetRequest();
+            var openid=link_obj["openid"]?link_obj["openid"]:"";
+            // 获取页面url数据
+            function GetRequest(){ 
+                var url = location.search; //获取url中"?"符后的字串 
+                var theRequest = new Object(); 
+                if (url.indexOf("?") != -1) { 
+                    var str = url.substr(1); 
+                    strs = str.split("&"); 
+                    for(var i = 0; i < strs.length; i ++) { 
+                        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+                    }
+                } 
+                return theRequest; 
+            };
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: encodeURI(window.location.href),
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    if(dw>limit){
+                        $(".center_box").css({"left":(dw-limit)/2+"px"});
+                    };
+                    var ratio=1;
+                    if(dh/fw*720<1136){
+                        ratio=dh/fw*720/1136;
+                    }
+                },
+                // ajax 请求地址
+                ajax_link: ["http://weapp.wemediacn.com/laneige/applyinfo/index/index_api","http://weapp.wemediacn.com/laneige/applyinfo/index/submitinfo_api","http://weapp.wemediacn.com/laneige/applyinfo/index/register_autocode_api"],
+                // 居中显示
+                toCenter:function(obj,par){
+                    var dh=par.height();
+                    var oh=obj.outerHeight();
+                    obj.css({"margin-top": (dh-oh)/2-50+"px"});
+                },
+                // 提示信息
+                atten_txt: ["请填写姓名","请填写手机号","请填写正确的手机号","请填写验证码","验证码错误，请重新输入","请选择省份","请选择城市","请填写邮寄地址","请填写邮政编码"],
+                // 后台获取信息
+                user_arr: {"openid":"用户id","name":"姓名","mobile":"手机","autocode":"验证码","autocodenew":"","province":"省份","city":"城市","address":"地址","zip":"邮编","v":1},
+            }
+            var city_obj=null;
+            $(function(){
+                // 绑定滚动
+                $m.rs();
+                m.setcss({"butbg":"#4278b9"});
+                $("#container").show();
+                $("#atten_box").fadeOut(200);
+                getPos();
+                // if(openid && openid!=""){
+                //     getUserInfo();
+                // }else{
+                //     window.location.href="http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html";
+                // }
+                // 手机限制输入字母和汉字
+                $(".js_mobile").bind("input propertychange",function(){
+                    var txt=$(this).val();
+                    var regx=/\D/g;
+                    $(this).val(txt.replace(regx,''));
+                });
+                $(".js_postcode").bind("input propertychange",function(){
+                    var txt=$(this).val();
+                    var regx=/\D/g;
+                    $(this).val(txt.replace(regx,''));
+                });
+                // 获取验证码
+                $("#checkbut").on("click",function(){
+                    checkpost($(this),"js_mobile");
+                });
+                // 提交
+                $(".js_sub").on("click",function(){
+                    toSub($(this));
+                });
+                $(window).on("resize",function(){$m.rs()});
+                
+            });
+// 请求数据
+function getUserInfo(){
+    $.ajax({
+        type: "POST",
+        url: $m.ajax_link[0],
+        data:{"v":1,"openid":openid,"url":$m.share_href},
+        dataType: "json",
+        success: function(data){
+            if(data["status"]==1){
+                // 未申领
+                $("#container").show();
+                $("#atten_box").fadeOut(200);
+                getPos();
+                if(data["share"]!="undefined" && data["share"]["info"]!="undefined"){
+                    shareFunc(data["share"]["info"]);
+                }
+            }else if(data["status"]==2){
+                // 已申领
+                window.location.href="success.html?openid="+openid;
+            }else if(data["status"]==3){
+                // 参数错误
+                $("#atten_box").children(".p2").show().siblings("p").hide();
+            }else if(data["status"]==4){
+                // 参数错误
+                $("#atten_box").children(".p2").show().siblings("p").hide();
+            }else if(data["status"]==11){
+                // 活动结束
+                $("#atten_box").children(".p3").show().siblings("p").hide();
+            }else if(data["status"]==12){
+                // 域名不合法
+                msg("您的链接地址不正确，请用官方链接打开。","确定",function(){
+                    if(typeof WeixinJSBridge!=="undefined"){
+                        WeixinJSBridge.call( 'closeWindow');
+                    }else{
+                        window.close();
+                    }
+                },true);
+            }else if(data["status"]==13){
+                // 未关注
+
+            }else{
+                // 非法入侵
+                msg("您的链接地址不正确，请用官方链接打开。","确定",function(){
+                    if(typeof WeixinJSBridge!=="undefined"){
+                        WeixinJSBridge.call( 'closeWindow');
+                    }else{
+                        window.close();
+                    }
+                },true);
+            }
+        },
+        error: function(XMLHttpRequest,textStatus,errorThrown){
+            $("#atten_box").children(".p2").show().siblings("p").hide();
+        }
+    });
+}
+// 提交函数
+function toSub(obj){    
+    var _this=obj;
+    var input_txt=[];
+    var select_txt=[];
+    var regx=/1[1-9]+[0-9]{9}/;
+    $(".user_info").each(function(){
+        input_txt.push($(this).val());
+        return input_txt;
+    });
+    $(".select_ele").each(function(){
+        select_txt.push($(this).val());
+        return select_txt;
+    });
+    if(input_txt[0]=="" || input_txt[0]==null || input_txt[0]==undefined){
+        msg($m.atten_txt[0],800);
+    }else if(input_txt[1]=="" || input_txt[1]==null || input_txt[1]==undefined){
+        msg($m.atten_txt[1],800);
+    }else if(input_txt[1].length<11 || !regx.test(input_txt[1])){
+        msg($m.atten_txt[2],800);
+    }else if(input_txt[2]=="" || input_txt[2]==null || input_txt[2]==undefined){
+        msg($m.atten_txt[3],800);
+    }else if(input_txt[2].length<4){
+        msg("请填写4位验证码",800);
+    }else if(select_txt[0]=="" || select_txt[0]==null || select_txt[0]==undefined){
+        msg($m.atten_txt[5],800);
+    }else if(input_txt[1]=="" || input_txt[1]==null || input_txt[1]==undefined){
+        msg($m.atten_txt[6],800);
+    }else if(input_txt[3]=="" || input_txt[3]==null || input_txt[3]==undefined){
+        msg($m.atten_txt[7],800);
+    }else if(input_txt[4]=="" || input_txt[4]==null || input_txt[4]==undefined){
+        msg($m.atten_txt[8],800);
+    }else{
+        _this.off("click");
+
+        _this.text("提交中...");
+        // 赋值
+        $m.user_arr["name"]=input_txt[0];
+        $m.user_arr["mobile"]=input_txt[1];
+        $m.user_arr["autocode"]=input_txt[2];
+        $m.user_arr["province"]=select_txt[0];
+        $m.user_arr["city"]=select_txt[1];
+        $m.user_arr["openid"]=openid;
+        $m.user_arr["address"]=input_txt[3];
+        $m.user_arr["zip"]=input_txt[4];
+        console.log($m.user_arr);
+        window.location.href="success.html?openid="+openid;
+        return false;
+        // 请求开始
+        $.ajax({
+            type: "POST",
+            url: $m.ajax_link[1],
+            dataType: "json",
+            data: $m.user_arr,
+            success: function(data){
+                console.log(data["status"]);
+                if(data["status"]==1){
+                    // 申领成功
+                    window.location.href="success.html?openid="+openid;
+                }else if(data["status"]==2){
+                    $(".bg_div").show();
+                    msg("openid已经存在","确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else if(data["status"]==3){
+                    $(".bg_div").show();
+                    msg("提交内容为空","确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else if(data["status"]==4){
+                    $(".bg_div").show();
+                    msg("参数错误。","确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else if(data["status"]==5){
+                    $(".bg_div").show();
+                    msg(data["msg"],"确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else if(data["status"]==6){
+                    $(".bg_div").show();
+                    msg(data["msg"],"确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else if(data["status"]==7){
+                    $(".bg_div").show();
+                    msg(data["msg"],"确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else if(data["status"]==8){
+                    $(".bg_div").show();
+                    msg(data["msg"],"确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    _this.text("确认提交")
+                    _this.on("click",function(){
+                        toSub(_this);
+                    });
+                }else{
+                    $(".bg_div").show();
+                    msg("信息不对，请用合法的链接打开。","确定",function(){
+                        if(typeof WeixinJSBridge!=="undefined"){
+                            WeixinJSBridge.call( 'closeWindow');
+                        }else{
+                            window.close();
+                        }
+                    },true);
+                }
+            },
+            error: function(XMLHttpRequest,textStatus,errorThrown){
+                // 请求失败
+                $(".bg_div").show();
+                msg("网络似乎出现了问题，请重试。","确定",function(){
+                    $(".bg_div").fadeOut(200);
+                },true);
+                _this.text("确认提交")
+                _this.on("click",function(){
+                    toSub(_this);
+                });
+            }
+        });
+        
+    }
+}
+// 验证码
+function checkpost(obj,input_class){
+    var input_txt="";
+    var regPartton=/1[1-9]+[0-9]{9}/;
+    input_txt=$("."+input_class).val();
+    if(input_txt=="" || input_txt==null || input_txt==undefined){
+        msg($m.atten_txt[1],800);
+    }
+    else if(input_txt.length<11 || !regPartton.test(input_txt)){
+        msg($m.atten_txt[2],800);
+    }
+    else{
+        obj.off("click");
+        var timer=null;
+        var seconds=59;
+        // 发送验证码后台切入口
+        obj.css({"color":"#acacac"});
+        obj.val("已发送(60)");
+        timer=setInterval(function(){
+            obj.val("已发送("+seconds+")");
+            seconds--;
+            if(seconds<0){
+                clearInterval(timer);
+                obj.val("重新发送");
+                obj.css({"color":"#fff"});
+                obj.on("click",function(){
+                    checkpost(obj,"js_mobile");
+                });
+            }
+        },1000);
+        return false;
+        // 请求开始
+        $.ajax({
+            type: "POST",
+            url: $m.ajax_link[2],
+            dataType: "json",
+            data: {"openid":openid,"mobile":input_txt,"v":1},
+            success: function(data){
+                console.log(data);
+                if(data["status"]==1){
+                    console.log("ok");
+                    var timer=null;
+                    var seconds=59;
+                    // 发送验证码后台切入口
+                    obj.css({"color":"#acacac"});
+                    obj.val("已发送(60)");
+                    timer=setInterval(function(){
+                        obj.val("已发送("+seconds+")");
+                        seconds--;
+                        if(seconds<0){
+                            clearInterval(timer);
+                            obj.val("重新发送");
+                            obj.css({"color":"#fff"});
+                            obj.on("click",function(){
+                                checkpost(obj,"js_mobile");
+                            });
+                        }
+                    },1000);
+                    $m.user_arr["autocodenew"]=data["yzm"];
+                }else if(data["status"]==2){
+                    $(".bg_div").show();
+                    msg(data["msg"],"确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    clearInterval(timer);
+                    obj.val("获取验证码");
+                    obj.css({"color":"#fff"});
+                    obj.on("click",function(){
+                        checkpost(obj,"js_mobile");
+                    });
+                }else if(data["status"]==3){
+                    $(".bg_div").show();
+                    msg(data["msg"],"确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    clearInterval(timer);
+                    obj.val("获取验证码");
+                    obj.css({"color":"#fff"});
+                    obj.on("click",function(){
+                        checkpost(obj,"js_mobile");
+                    });
+                }else{
+                    $(".bg_div").show();
+                    msg("网络似乎出现了问题，请重试。","确定",function(){
+                        $(".bg_div").fadeOut(200);
+                    },true);
+                    clearInterval(timer);
+                    obj.val("获取验证码");
+                    obj.css({"color":"#fff"});
+                    obj.on("click",function(){
+                        checkpost(obj,"js_mobile");
+                    });
+                }
+            },
+            error: function(XMLHttpRequest,textStatus,errorThrown){
+                // 请求失败
+                $(".bg_div").show();
+                msg("网络似乎出现了问题，请重试。","确定",function(){
+                    $(".bg_div").fadeOut(200);
+                },true);
+                clearInterval(timer);
+                obj.val("获取验证码");
+                obj.css({"color":"#fff"});
+                obj.on("click",function(){
+                    checkpost(obj,"js_mobile");
+                });
+            }
+        });
+    }
+}
+/*----------------微信分享-----------------*/
+// 分享函数
+function shareFunc(arr){
+    wx.config({
+        debug: false,
+        appId: arr["appid"], 
+        timestamp: arr["timestamp"], 
+        nonceStr: arr["nonceStr"], 
+        signature: arr["signature"], 
+        jsApiList:[
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'hideMenuItems',
+        ] 
+    });
+    wx.ready(function(){
+
+        wx.onMenuShareTimeline({
+            title: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享标题
+            link: "http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html", // 分享链接
+            imgUrl: "http://bos.bj.baidubce.com/we-sh2/laneige/applyinfo/yun/201603/images/share.jpg", // 分享图标
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享标题
+            desc: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享描述
+            link: "http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html", // 分享链接
+            imgUrl: "http://bos.bj.baidubce.com/we-sh2/laneige/applyinfo/yun/201603/images/share.jpg", // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        // 隐藏按钮
+        wx.hideMenuItems({
+            menuList: [
+                'menuItem:readMode', // 阅读模式
+                'menuItem:copyUrl' ,// 复制链接
+                'menuItem:share:qq',//分享qq
+                'menuItem:share:weiboApp',//分享微博
+                'menuItem:share:facebook',//分享到FB
+                'menuItem:jsDebug',//调试
+                'menuItem:editTag',//编辑标签
+                'menuItem:delete',//删除
+                'menuItem:originPage',//原网页
+                'menuItem:openWithQQBrowser',//qq浏览器打开
+                'menuItem:openWithSafari',//safari浏览器打开
+                'menuItem:share:email',//邮件
+                'menuItem:share:brand',//特殊公众号
+            ],
+            success: function (res) {
+                console.log("ok");
+            },
+            fail: function (res) {
+                console.log(JSON.stringify(res));
+            }
+        });
+    });
+}
+        </script>
+    </body>
+   
+</html>
+
+ 

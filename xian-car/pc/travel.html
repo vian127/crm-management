@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta author="lut000"/>
+	<meta name="robots" content="all"/>
+	<meta name="keywords" content="出行,物流,商城,劳务"/>
+	<meta name="description" content="山西置安为民汽车租凭"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>出行</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" href="css/pikaday.css">
+    <link rel="stylesheet" href="css/theme.css">
+	<style type="text/css">
+		.top_div{
+			padding: 50px 0;
+			background-image: url(images/2.jpg);
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: left top;
+		}
+		.choice_box{
+			display: inline-block;
+			padding:30px;
+			margin-bottom: 30px;
+			background-image: url(images/2.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100% 100%;
+		}
+		.choice_nav{
+
+			margin-bottom: 30px;
+		}
+		.choice_nav>li{
+			display: inline-block;
+			margin: 0 15px;
+		}
+		.choice_nav>li>a{
+			font-size: 16px;
+		}
+		.choice_box>label{
+			font-size: 16px;
+			margin-left: 15px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.choice_box>select{
+			padding: 5px 10px;
+			margin-right: 10px;
+			vertical-align: middle;
+		}
+		.choice_box>a{
+			vertical-align: middle;
+		}
+		.pic1{
+			width: 40%;
+		}
+		.introduce_box{
+			padding: 20px;
+			text-align: center;
+		}
+		.introduce_box>img{
+			width: 70%;
+		}
+		.detail_box{
+			padding: 20px;
+		}
+		.type_list{
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.type_list>li{
+			display: inline-block;
+			margin: 0 20px;
+		}
+		.type_list>li>a{
+			font-size: 16px;
+			display: inline-block;
+			padding: 10px 30px;
+			background-image: url(images/icon5.png);
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: 20px;
+		}
+		.type_list .choice_now{
+			background-image: url(images/icon6.png);
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: 20px;
+		}
+		.detail_div{
+			text-align: center;
+		}
+		.detail_div>label{
+			font-size: 16px;
+		}
+		.input_area{
+			padding: 4px 10px;
+		}
+		.pos_list{
+			margin-top: 30px;
+			margin-bottom: 30px;
+			text-align: left;
+		}
+		.pos_list>li{
+			margin: 20px 0;
+		}
+		.pos_list>li>label{
+			display: inline-block;
+			width: 30%;
+			margin-right: 20px;
+			text-align: right;
+		}
+		.pos_list>li>span{
+			display: inline-block;
+		}
+		.pos_list .pos_spn1{
+			padding: 20px 25px;
+			margin-left: 0;
+			background-image: url(images/icon4.png);
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: 18px;
+		}
+		.pos_list .input_area{
+			width: 40%;
+			margin-left: 32%;
+			margin-right: 20px;
+		}
+		.pos_list>li>select{
+			margin: 0 10px;
+			padding: 5px 10px;
+		}
+		.pos_list .select1{
+			margin-left: 0;
+		}
+		.detail_div .btn_type2{
+			margin-top: 20px;
+			padding: 10px 50px;
+		}
+		.map_div{
+			width: 80%;
+			height: 300px;
+			margin: 30px auto;
+			border: 1px solid #ddd;
+			display: none;
+		}
+		.h_time_lab{
+			margin-left: 10px;
+		}
+		.time_spn{
+			margin-left: 10px;
+			cursor: pointer;
+
+		}
+
+		.line_box{
+			padding: 20px 0;
+			background-color: 
+		}
+		.left_div{
+			box-sizing:border-box;
+			-moz-box-sizing:border-box; /* Firefox */
+			-webkit-box-sizing:border-box; /* Safari */
+			width: 25%;
+			padding: 30px 10px;
+			border: 1px solid #999999;
+			background-color: #fff58a;
+		}
+		.left_div>h3{
+			font-size: 16px;
+			margin-bottom: 12px;
+			text-align: center;
+		}
+		.left_div>p{
+			margin: 10px 0;
+		}
+		.left_div .p1{
+			color: #f82828;
+			font-size: 16px;
+			margin-bottom: 0;
+			text-align: center;
+		}
+		.right_div{
+			box-sizing:border-box;
+			-moz-box-sizing:border-box; /* Firefox */
+			-webkit-box-sizing:border-box; /* Safari */
+			width: 72%;
+			padding: 0 20px;
+			margin-left: 2%;
+			border: 1px solid #999999;
+		}
+		.right_div>h3{
+			padding: 15px 0;
+			
+		}
+		.line_list>li{
+			padding: 20px 0;
+			border-top: 1px solid #b3b3b3;
+		}
+		.line_list>li:after{
+			clear: both;
+			display: block;
+			content: "";
+		}
+		.line_list>li>img{
+			width: 107px;
+			float: left;
+		}
+		.line_txt_div{
+			float: left;
+			width: 565px;
+			margin-left: 20px;
+		}
+		.line_txt_div>h4{
+			font-size: 20px;
+			padding: 2px 0;
+		}
+		.detail_list>li>label{
+			display: inline-block;
+			width: 72px;
+			margin-top: 5px;
+			vertical-align: top;
+		}
+		.detail_list>li>span{
+			margin-top: 5px;
+			display: inline-block;
+			width: 490px;
+			vertical-align: top;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=BQtrC7t3SWOnelZPBWPMSSZi"></script>
+</head>
+<body>
+	<!-- 头部 -->
+	<div id="header">
+		<div class="w1024">
+			<!-- 用户登录信息 -->
+			<div class="sign_box">
+				<img src="images/icon1.png" alt="电话"><span>4000-966-000</span>
+				<div class="sign_div">
+					<div>
+						<a class="btn3" href="sign.html?type=1" title="登录">登录</a>
+						<label>&nbsp;|&nbsp;</label>
+						<a class="btn3" href="sign.html?type=2" title="注册">注册</a>
+					</div>
+					<div class="hide">
+						<span>张开印</span>
+						<label>&nbsp;|&nbsp;</label>
+						<a class="btn3" href="javascript:;" title="退出登录">退出登录</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- nav -->
+		<div class="nav_box clear">
+			<!-- logo -->
+			<div class="w1024">
+				<img class="logo_pic" src="images/logo1.png" alt="logo">
+				<ul class="nav">
+					<li><a class="" href="index.html" title="首页">首页</a></li>
+					<li><a class="current_nav" href="travel.html" title="出行">出行</a></li>
+					<li><a class="" href="Logistical.html" title="物流">物流</a></li>
+					<li><a class="" href="store.html" title="商城">商城</a></li>
+					<li><a class="" href="labor.html" title="劳务">劳务</a></li>
+					<li class="pos_r js_about">
+						<a class="" href="about.html" title="关于我们">关于我们</a>
+						<!-- 关于我们列表 -->
+						<ul class="about_nav">
+							<li class=""><a class="btn3" href="introduce.html" title="公司介绍">公司介绍</a></li>
+							<li class=""><a class="btn3" href="memory.html" title="公司大记事">公司大记事</a></li>
+							<li class=""><a class="btn3" href="cooperation.html" title="投资合作">投资合作</a></li>
+							<li class=""><a class="btn3" href="recruit.html" title="人才招聘">人才招聘</a></li>
+							<li class=""><a class="btn3 n_b" href="contact.html" title="联系我们">联系我们</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 内容 -->
+	<div id="content">
+		<!-- 上面 -->
+		<div class="top_div">
+			<div class="w1024">
+				<div class="choice_box">
+					<ul class="choice_nav">
+						<li><a class="btn1" href="javascript:;" title="立即约车">立即约车</a></li>
+						<li><a class="btn1" href="javascript:;" title="预约用车">预约用车</a></li>
+						<li><a class="btn1" href="javascript:;" title="线路预约">线路预约</a></li>
+					</ul>
+					<label>出发地：</label>
+					<select id="city_s">
+						<option>请选择省份</option>
+						<option>太原市</option>
+						<option>太原市</option>
+					</select>
+					<label>目的地：</label>
+					<select id="city_e">
+						<option>请选择市</option>
+						<option>太原市</option>
+						<option>太原市</option>
+					</select>
+					<a class="btn2 btn_type1 js_to_next" href="javascript:;" title="下一步">下一步</a>
+				</div><br/>
+				<img class="pic1" src="images/txt1.png" alt="车载四海宾客，心交八方朋友。城际快客，您永远的朋友">
+			</div>
+		</div>
+		<div class="w1024">
+			<!-- 功能介绍 -->
+			<div class="introduce_box">
+				<img src="images/3.jpg" alt="出现说明图片"/>
+			</div>
+			<!-- 详细选择 -->
+			<div class="detail_box hide">
+				<ul class="type_list">
+					<li><a class="btn1 choice_now" href="javascript:;" title="本人">本人</a></li>
+					<li><a class="btn1" href="javascript:;" title="帮人约车">帮人约车</a></li>
+				</ul>
+				<div class="detail_div">
+					<label>日期：</label><input class="input_area" type="text" id="datepicker-theme">
+					<label class="h_time_lab">时间</label><span class="time_spn">16:45</span>
+					<ul class="pos_list">
+						<li>
+							<label>上车地点：</label>
+							<span class="pos_spn1 js_prov_s">山西省</span>
+							<span class="js_city_s">太原市</span>
+							<select id='area_sel_s'>
+								<option>请选择区</option>
+							</select><br/><br/>
+							<input class="input_area js_input_pos1" type="text" placeholder="在此输入详细地址">
+							<a class="btn4 js_show_map1" href="javascript:;" title="查看地图">查看地图</a>
+							<!-- 地图出发地 -->
+							<div id="map_div1" class="map_div">
+
+							</div>
+						</li>
+						<li>
+							<label>下车地点：</label>
+							<span class="pos_spn1 js_prov_e">山西省</span>
+							<span class="js_city_e">太原市</span>
+							<select id="area_sel_e">
+								<option>请选择区</option>
+							</select><br/><br/>
+							<input class="input_area js_input_pos2" type="text" placeholder="在此输入详细地址">
+							<a class="btn4 js_show_map2" href="javascript:;" title="查看地图">查看地图</a>
+							<!-- 地图目的地 -->
+							<div id="map_div2" class="map_div">
+								
+							</div>
+						</li>
+						<li>
+							<label>预估价：</label><span>50.36元</span>
+						</li>
+						<li>
+							<label>代金券：</label>
+							<select class="select1">
+								<option>请选择代金券</option>
+							</select>
+						</li>
+						<li class="txt_c"><a class="btn2 btn_type2 js_sub_btn" href="javascript:;" title="提交">提&nbsp;&nbsp;&nbsp;交</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 选择路线 -->
+			<div class="line_box clear hide">
+				<div class="left_div f_l">
+					<h3>预约说明</h3>
+					<p>1、郑州、南阳三环以内免费接送，超出范围需支付相应燃油费。</p>
+					<p>2、婴儿、儿童即使不占用座位也需计入乘车数量,按半价收费。请您在预约时如实提供乘车人数及行李携带情况。</p>
+					<p>3、为确保及时安排车辆，建议您提前2小时预约。</p>
+					<p>4、如有疑问请致电：</p>
+					<p class="p1">400096021011</p>
+				</div>
+				<div class="right_div f_l">
+					<h3 class="clear">推荐路线
+						<a class="btn4 f_r" href="javascript:;" title="直接下单">直接下单>></a>
+					</h3>
+					<ul class="line_list clear">
+						<li>
+							<img src="images/3.png" alt="路线">
+							<div class="line_txt_div">
+								<h4 class="clear">
+									<span>郑州-南阳</span>
+									<a class="btn2 btn_type2 f_r" href="javascript:;" title="我要下单">我要下单</a>
+								</h4>
+								<ul class="detail_list">
+									<li><label>高速时长：</label><span>2.5小时</span></li>
+									<li><label>全程：</label><span>3-4个小时左右（视客户位置和交通情况而定）4个小时左右（视客户位置和交通情况而定）4个小时左右（视客户位置和交通情况而定）4个小时左右（视客户位置和交通情况而定）</span></li>
+									<li><label>单程价格：</label><span>成人150元/人，儿童75元/人（身高1.3米以下）</span></li>
+									<li><label>郑州范围：</label><span>东至新107国道；南至南三环；北至三全路；西至西三环</span></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<img src="images/3.png" alt="路线">
+							<div class="line_txt_div">
+								<h4 class="clear">
+									<span>郑州-南阳</span>
+									<a class="btn2 btn_type2 f_r" href="javascript:;" title="我要下单">我要下单</a>
+								</h4>
+								<ul class="detail_list">
+									<li><label>高速时长：</label><span>2.5小时</span></li>
+									<li><label>全程：</label><span>3-4个小时左右（视客户位置和交通情况而定）</span></li>
+									<li><label>单程价格：</label><span>成人150元/人，儿童75元/人（身高1.3米以下）</span></li>
+									<li><label>郑州范围：</label><span>东至新107国道；南至南三环；北至三全路；西至西三环</span></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<img src="images/3.png" alt="路线">
+							<div class="line_txt_div">
+								<h4 class="clear">
+									<span>郑州-南阳</span>
+									<a class="btn2 btn_type2 f_r" href="javascript:;" title="我要下单">我要下单</a>
+								</h4>
+								<ul class="detail_list">
+									<li><label>高速时长：</label><span>2.5小时</span></li>
+									<li><label>全程：</label><span>3-4个小时左右（视客户位置和交通情况而定）</span></li>
+									<li><label>单程价格：</label><span>成人150元/人，儿童75元/人（身高1.3米以下）</span></li>
+									<li><label>郑州范围：</label><span>东至新107国道；南至南三环；北至三全路；西至西三环</span></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 底部 -->
+	<div id="footer">
+		<div class="w1024 clear">
+			<div class="main">
+				<h3>帮助中心</h3>
+				<ul class="list">
+					<li><a class="btn2" href="javascript:;" title="新手上路">新手上路</a></li>
+					<li><a class="btn2" href="javascript:;" title="常见问题">常见问题</a></li>
+					<li><a class="btn2" href="javascript:;" title="服务规则">服务规则</a></li>
+					<li><a class="btn2" href="javascript:;" title="忘记密码">忘记密码</a></li>
+					<li><a class="btn2" href="javascript:;" title="乘客须知">乘客须知</a></li>
+				</ul>
+				<h3>城市约车</h3>
+				<ul class="list">
+					<li><a class="btn2" href="javascript:;" title="郑州约车">郑州约车</a></li>
+					<li><a class="btn2" href="javascript:;" title="南阳约车">南阳约车</a></li>
+					<li><a class="btn2" href="javascript:;" title="上海约车">上海约车</a></li>
+					<li><a class="btn2" href="javascript:;" title="洛阳约车">洛阳约车</a></li>
+				</ul>
+				<!-- 地址信息 -->
+				<div class="pos_div">
+					<label>联系地址：</label><span>上海市某某大厦23楼106室</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<label>电话：</label><span>15151545689</span>
+				</div>
+				<!-- 版权申明 -->
+				<div class="rights_div">
+					<span>城际快客版权所有</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>沪ICP备01234567号</span>
+				</div>
+			</div>
+			<!-- 二维码 -->
+			<div class="code_div">
+				<a class="btn2" href="javascript:;" title="微信公众号">
+					<img src="images/code1.png" alt="微信公众号"><br/>
+					微信公众号
+				</a>
+				<a class="btn2" href="javascript:;" title="APP安卓版">
+					<img src="images/code2.png" alt="APP安卓版"><br/>
+					APP安卓版
+				</a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/pikaday.min.js"></script>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=5ZmIO6bXbDtdllzdMZwfXmFm"></script>
+	<script type="text/javascript" src="js/city.js"></script>
+	<script type="text/javascript">
+		var $m={
+			// 居中
+			toCenter:function(obj,par){
+				var dw=par.width();
+				var dh=par.height();
+				var ow=obj.width();
+				var oh=obj.height();
+				obj.css({"left":(dw-ow)/2+"px"});
+			},
+			// 初始化
+			init:function(){
+				this.setModel();
+			},
+			// 计算高度
+			setModel:function(){
+				// 浏览器高度
+				var dh=document.documentElement.clientHeight || document.body.height;
+				// 头部高度
+				var th=$("#header").outerHeight();
+				// 底部高度
+				var bh=$("#footer").outerHeight();
+				$("#content").css({"min-height":(dh-th-bh)+"px"});
+			},
+			// 按比例设置元素高度
+			setHeight:function(obj,k,num){
+				// obj对象，k高度/宽，num预定义数值
+				var ow=obj.width();
+				console.log(ow)
+				var oh=parseInt(ow*k)?parseInt(ow*k):num?num:0;
+				obj.height(oh);
+			},
+			// 是否已经生成地图
+			hasSet: false,
+			// 
+			hasSetH:false,
+			// 当前位置信息
+			now_pos:null,
+		}
+		var city_obj=null;
+		// 百度地图
+		var map1=null,map2=null;
+		$(function(){
+			// 获取地理位置
+			getPos();
+            var picker = new Pikaday({
+		        field: document.getElementById('datepicker-theme'),
+		        firstDay: 1,
+		        minDate: new Date('2000-01-01'),
+		        maxDate: new Date('2020-12-31'),
+		        yearRange: [2000,2020],
+		        "theme": 'dark-theme'
+		    });
+            // 移入效果
+			$(".js_about").on("mouseenter",function(){
+				$(this).children(".about_nav").stop(true).slideDown(200);
+			}).on("mouseleave",function(){
+				$(this).children(".about_nav").stop(true).delay(300).slideUp(200);
+			});
+			// 下一步
+			$(".js_to_next").on("click",function(){
+				setInfo();
+				$(".introduce_box").hide();
+				$(".detail_box").show();
+				var b=$(".map_div");
+				b.show();
+				$m.setHeight(b,0.5,320);
+				b.hide();
+			});
+			// 切换类型
+			$(".type_list>li").on("click",function(){
+				$(this).siblings("li").children("a").removeClass("choice_now");
+				$(this).children("a").addClass("choice_now");
+			});
+			// 点击显示地图
+			$(".js_show_map1").on("click",function(){
+				var a=$(this);
+				dropFunc(a,$("#map_div1"));
+			});
+			// 点击显示地图
+			$(".js_show_map2").on("click",function(){
+				var a=$(this);
+				dropFunc(a,$("#map_div2"));
+			});
+			// 切换地区
+			$("#area_sel_s").on("change",function(){
+				$m.hasSetH=false;
+			});
+			$("#area_sel_e").on("change",function(){
+				$m.hasSetH=false;
+			});
+			// 提交订单
+			$(".js_sub_btn").on("click",function(){
+				$(".detail_box").hide();
+				$(".line_box").show();
+			});
+		});
+		// 生成地图
+		function setMap(txt1,txt2){
+			map1= new BMap.Map("map_div1");
+			map2= new BMap.Map("map_div2");
+			map1.centerAndZoom(txt1,15);
+			map2.centerAndZoom(txt2,15);
+			$m.hasSetH=true;
+			// 配置控件
+			setTool(map1);
+			setTool(map2);
+			// $(".map_div").hide();
+			getPosDetail(map1,$(".js_input_pos1"));
+			getPosDetail(map2,$(".js_input_pos2"));
+
+		}
+		// 获取坐标定位街道
+		function getPosDetail(obj,tar){
+			obj.addEventListener("click",function(e){
+				var pointAdd=new BMap.Point(e.point.lng,e.point.lat);
+				var gc = new BMap.Geocoder(); 
+				gc.getLocation(pointAdd, function(rs){
+					var adr_txt="";
+					if(rs!==null){
+						adr_txt=rs.address;
+					}
+					tar.val(adr_txt);
+				});
+			},false);
+		}
+
+		// 设置地图控件
+		function setTool(map){
+			map.enableScrollWheelZoom(true);
+		}
+		// 下拉
+		function dropFunc(obj,tar){
+			var a=obj;
+			var b=tar;
+			if(!a.hasClass("js_now")){
+				a.addClass("js_now");
+				b.stop(true).slideDown(300,function(){
+					if(!$m.hasSetH){
+						var p1_1=$(".js_prov_s").text()?$(".js_prov_s").text():"";
+						var p1_2=$(".js_city_s").text()?$(".js_city_s").text():"";
+						var p1_3=$("#area_sel_s").val()?$("#area_sel_s").val():"";
+						var p2_1=$(".js_prov_e").text()?$(".js_prov_e").text():"";
+						var p2_2=$(".js_city_e").text()?$(".js_city_e").text():"";
+						var p2_3=$("#area_sel_e").val()?$("#area_sel_e").val():"";
+						var txt1=p1_1+p1_2+p1_3;
+						var txt2=p2_1+p2_2+p2_3;
+						setMap(txt1,txt2);
+					}
+					a.text("收起地图");
+				});
+			}else{
+				a.removeClass("js_now");
+				b.stop(true).slideUp(300,function(){
+					a.text("查看地图");
+				});
+			}
+		}
+		// 更新地址信息
+		function setInfo(){
+			// 获取数据
+			var start_p1=$("#city_s").children("option:checked").attr("data-prov");
+			var start_p2=$("#city_s").children("option:checked").attr("data-prov");
+			var txt1=$("#city_s").val();
+			var txt2=$("#city_e").val();
+			$(".js_city_s").text(txt1);
+			$(".js_city_e").text(txt2);
+			$(".js_prov_s").text(start_p1);
+			$(".js_prov_e").text(start_p2);
+			// 生成对应的区
+			var osele1=document.getElementById("area_sel_s");
+			var osele2=document.getElementById("area_sel_e");
+			var pos=$m.now_pos["district"];
+			city_obj.setArea(osele1,ctArr,txt1,pos);
+			city_obj.setArea(osele2,ctArr,txt2,pos);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+@charset 'UTF-8';
+.header-title {
+    padding-top: 0px;
+    height: 30px;
+    border-bottom: 1px solid #797979;
+}
+
+#page-wrapper {
+    min-width: 1080px;
+    white-space: nowrap;
+  
+  }
+  .content {
+    min-width: 980px;
+    min-height:600px;
+  }
+.collect {
+    padding: 0px 20px 10px 0;
+}
+
+.collect td {
+    white-space: nowrap;
+    padding: 10px 5px 0 5px;
+}
+
+nav li span {
+    display: inline-block;
+    /* width: 80px; */
+    text-align: right;
+}
+
+.collect select {
+    width: 162px;
+}
+.pick {
+    position: relative;
+}
+.pick button {
+    height: 28px;
+    line-height: 22px;
+    padding: 3px 12px;
+    font-size: 12px;
+    margin-left: 5px;
+    border: 1px solid #797979;
+}
+.btn-reset {
+    width: 70px;
+}
+.info {
+    overflow: auto;
+}
+
+.info td,
+th {
+    white-space: nowrap;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.dialog {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    /* height: 60%; */
+    background-color: #fff;
+    border: 1px solid #797979;
+    display: none;
+    z-index:4;
+}
+
+.dialog .dialog-wrap {
+    padding: 20px;
+}
+
+.dialog-wrap>p {
+    border-bottom: 1px solid #ccc;
+    height: 23px;
+}
+
+.group input {
+    width: 130px;
+    height: 20px;
+}
+
+.cm-3 {
+    padding-right: 0;
+}
+
+.group,
+.hold-group {
+    height: 30px;
+    line-height: 30px;
+}
+
+.hold-group {
+    margin-bottom: 50px;
+}
+
+.hold-group input {
+    height: 20px;
+}
+
+.group select {
+    width: 130px;
+}
+
+.btn-cancel,
+.btn-sure {
+    width: 70px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    padding: 0 10px;
+    margin-right: 5px;
+    font-size: 12px;
+    border: 1px solid #797979;
+}
+
+.btn-group {
+    margin-top: 30px;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #000000;
+    filter: alpha(opacity=30);
+    -moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+    display:none;
+    z-index: 3;
+}
+
+.chioce {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #797979;
+    width: 175px;
+    text-align: left;
+    padding: 10px 10px 10px 20px;
+    display: none;
+}
+.chioce li {
+    height: 30px;
+    line-height: 30px;
+}
+.chioce span {
+    padding-left: 10px;
+    vertical-align:middle;
+    font-size: 12px;
+}
+.all-select {
+    padding-left: 10px;
+}
+
+.chioce input {
+    vertical-align:middle;
+    margin: 0;
+}

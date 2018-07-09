@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* @author lut */
+* { margin:0; padding:0;}
+html,body{width: 100%;height: 100%;overflow:hidden;}
+a{text-decoration: none;}
+table{border-collapse:collapse;width:100%;}
+li {list-style: none;}
+input{border-radius: 0;outline: none;vertical-align: middle;}
+/* 清楚浮动 */
+.clear:after {clear: both;content : "";display : block;height : 0;visibility : hidden;}
+/****************公用样式**************/
+/*按钮颜色*/
+.btn1,.btn1:visited,.btn1:hover,.btn1:focus{color: #000;}
+.btn2,.btn2:visited,.btn2:hover,.btn2:focus{color: #fff;}
+.btn3,.btn3:visited,.btn3:hover,.btn3:focus{color: #f15b81;}
+
+/*背景颜色*/
+.bg_color1{background-color: #fff}
+.bg_color2{background-color: #f6f6f6}
+.bg_color3{background-color: #eab0af !important}
+.bg_color4{background-color: #ffb5c8 !important}
+.bg_color5{background-color: #f15b81 !important}
+
+
+.n_bg{background: none !important;}
+/*文字颜色*/
+.w_color1{color: #000 !important}
+.w_color2{color: #fff !important}
+.w_color3{color: #f15b81}
+.w_color4{color: #d8cf1d}
+.w_color5{color: #3b7cd3}
+.w_color6{color: #3abbb6}
+.w_color7{color: #c481c8}
+.w_color8{color: #ec5155}
+.w_color9{color: #eeb6b5}
+.w_color10{color: #eeb6b5}
+.w_color11{color: #555}
+/*文字对齐方式*/
+.txt_r{text-align: right;}
+.txt_l{text-align: left;}
+.txt_c{text-align: center;}
+/*字体大小*/
+.font05{font-size: 0.5em !important}
+.font06{font-size: 0.6em !important}
+.font07{font-size: 0.6em !important}
+.font08{font-size: 0.8em !important}
+.font09{font-size: 0.9em !important}
+.font10{font-size: 1em}
+.font11{font-size: 1.1em !important}
+.font12{font-size: 1.2em !important}
+.font15{font-size: 1.5em !important}
+.font18{font-size: 1.8em !important;}
+.hide{display: none !important}
+/*浮动*/
+.f_l{float: left;}
+.f_r{float: right;}
+/*浮层框*/
+#fix_box{
+	position: fixed;
+	display: inline-block;
+	width: 60%;
+	min-height: 30%;
+	z-index: 2000;
+	display: none;
+}
+#bg_div{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	border-radius: 1em;
+	z-index: 1;
+}
+#tip_txt{
+	position: absolute;
+	width: 100%;
+	min-height: 1em;
+	z-index: 100;
+	color: #fff;
+	text-align: center;
+}

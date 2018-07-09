@@ -1,0 +1,54 @@
+@charset 'UTF-8';
+.header-title {
+    padding-top: 0px;
+    height: 30px;
+    border-bottom: 1px solid #797979;
+}
+#page-wrapper {
+    min-width: 1080px;
+    white-space: nowrap;
+  
+  }
+  .content {
+    min-width: 980px;
+    min-height:600px;
+  }
+.open {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #797979;
+    border-radius: 3px;
+}
+.open::after {
+    content:'—';
+    position: relative;
+    top: -2px;
+    left:0;
+    color: #797979;
+}
+.control {
+    padding: 10px 0;
+}
+.btn-wrap{
+    text-align: right;
+}
+.btn-save,.btn-close {
+    width: 70px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    padding: 0 10px;
+    margin-right: 5px;
+    font-size: 12px;
+    border: 1px solid #797979;
+}
+
+
+.manage-wrap {
+    white-space: nowrap;
+}
+
+.manage-wrap label {
+    width: 40%;
+    text-align: right;
+}

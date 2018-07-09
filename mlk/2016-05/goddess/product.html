@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="WE"/>
+        <meta name="keywords" content="男神、女神"/>
+        <meta name="description" content="玫琳凯，拿什么来爱你，我的女神"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>玫琳凯</title>
+        <style type="text/css">
+            *{margin: 0;padding: 0;}
+            img{width: 100%;}
+            #container{position: relative;max-width: 720px;margin: auto;background-image: url(images/bg8.jpg);background-repeat: repeat-y;background-position: center;background-size: 100%;}
+            .header{padding-top: 1.5em;text-align: center;}
+            .pic1{width: 55%;vertical-align: middle;}
+            .pic2{width: 18%;margin-left: 0.5em;vertical-align: middle;}
+            #container>img{position: absolute;}
+            .pic3{left: 6%;top: 18%;width: 43%;}
+            .pic4{right: 3%;top:40%;width: 46%;}
+            .pic5{left: 0;right: 0;top:68%;display: block;margin: auto;width: 76%;}
+            .pic6{width: 80%;}
+        </style>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container">
+            <!-- 头部 -->
+            <section class="header">
+                <img class="pic1" src="images/34.png" alt="献上我最信任的它们，你想要的，都能办到！"/>
+                <img class="pic2" src="images/icon10.png" alt="icon"/>
+            </section>
+            <!-- 内容 -->
+            <img class="pic3" src="images/35.png" alt="永恒无龄女神组合"/>
+            <img class="pic4" src="images/36.png" alt="0暗沉亮采女神组合"/>
+            <img class="pic5" src="images/37.png" alt="夏日舒缓水润女神组合"/>
+        </section>
+        <script type="text/javascript">
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: window.location.href,
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    $("#container").css({"min-height":dh+"px"});
+                    var ratio=1;
+                    if(dh/fw*720<1136){
+                        ratio=dh/fw*720/1136;
+                    }                    
+                },
+            }
+            $(function(){
+                $m.rs();
+                $(window).on("resize",function(){$m.rs()});
+            });
+        </script>
+    </body>
+</html>
+
+ 

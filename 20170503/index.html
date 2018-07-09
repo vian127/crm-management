@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="lut"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>数据查询</title>
+        <!-- css -->
+        <link rel="stylesheet" href="src/css/base.css?version=2017/05/05"/>
+    </head>
+    <body>
+        <!-- view -->
+        <section id="view-section">
+            <!-- header -->
+            <div class="header clear">
+                <div class="select-div js-select-div">
+                    <!-- <select>
+                        <option data-id="11" name="请选择">水电费</option>
+                        <option data-id="11" name="请选择">请选择</option>
+                        <option data-id="11" name="请选择">地方</option>
+                    </select> -->
+                    <button class="js-search-btn" title="查询">查询</button>
+                </div>
+                <ul class="info-list clear js-info-list">
+                </ul>
+            </div>
+            <!-- content -->
+            <div class="content js-content">
+                <table class="table js-table">
+                </table>
+                <p class="js-no-list hide">暂时没有数据。</p>
+            </div>
+            <!-- footer -->
+            <!-- <div class="footer">
+                我是底部
+            </div> -->
+        </section>
+        <!-- other -->
+        <!-- 加载部分 -->
+        <section id="atten-box" class="js-atten-box">
+            <div class="loading-div">
+                <p class="p1">
+                    <span class="type3"></span>
+                </p>
+                <p class="p2"><a class="btn1" href="javascript:window.location.reload(true);" title="加载失败，点击重试！">加载失败，点击重试！</a></p>
+            </div>
+            <div class="loading-bg"></div>
+        </section>
+        
+        <!-- bg -->
+        <section class="bg-section fixed-ele js-bg-section"></section>
+        <!-- js -->
+        <script type="text/javascript" src="src/js/lib/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="src/js/common/pop-msg-mt-1.0.js"></script>
+        <script type="text/javascript" src="src/js/index.js?version=2017/05/05"></script>
+    </body>
+</html>

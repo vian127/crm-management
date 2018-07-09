@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>客户管理</title>
+  <!-- Bootstrap Styles-->
+  <link href="../../css/common/base.css" rel="stylesheet" />
+  <link href="../../css/lib/bootstrap.min.css" rel="stylesheet" />
+  <!-- FontAwesome Styles-->
+  <link href="../../css/common/font-awesome.css" rel="stylesheet" />
+  <!-- Custom Styles-->
+  <!-- Google Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="../../js/lib/layui/css/layui.css">
+  <link href="../../css/common/common.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/customer/client.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- 头部导航 -->
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <i class="fa fa-gear"></i>
+          <strong>HYBRID</strong>
+        </a>
+      </div>
+
+      <ul class="nav navbar-top-links navbar-right hidden-xs">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-envelope fa-fw"></i>
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-messages">
+            <li>
+              <a href="#">
+                <div>
+                  <strong>John Doe</strong>
+                  <span class="pull-right text-muted">
+                    <em>Today</em>
+                  </span>
+                </div>
+                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <strong>John Smith</strong>
+                  <span class="pull-right text-muted">
+                    <em>Yesterday</em>
+                  </span>
+                </div>
+                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <strong>John Smith</strong>
+                  <span class="pull-right text-muted">
+                    <em>Yesterday</em>
+                  </span>
+                </div>
+                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="text-center" href="#">
+                <strong>Read All Messages</strong>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- /.dropdown-messages -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-tasks fa-fw"></i>
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-tasks">
+            <li>
+              <a href="#">
+                <div>
+                  <p>
+                    <strong>Task 1</strong>
+                    <span class="pull-right text-muted">60% Complete</span>
+                  </p>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                      style="width: 60%">
+                      <span class="sr-only">60% Complete (success)</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <p>
+                    <strong>Task 2</strong>
+                    <span class="pull-right text-muted">28% Complete</span>
+                  </p>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
+                      <span class="sr-only">28% Complete</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <p>
+                    <strong>Task 3</strong>
+                    <span class="pull-right text-muted">60% Complete</span>
+                  </p>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                      style="width: 60%">
+                      <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <p>
+                    <strong>Task 4</strong>
+                    <span class="pull-right text-muted">85% Complete</span>
+                  </p>
+                  <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                      style="width: 85%">
+                      <span class="sr-only">85% Complete (danger)</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="text-center" href="#">
+                <strong>See All Tasks</strong>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- /.dropdown-tasks -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-bell fa-fw"></i>
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-alerts">
+            <li>
+              <a href="#">
+                <div>
+                  <i class="fa fa-comment fa-fw"></i> New Comment
+                  <span class="pull-right text-muted small">4 min</span>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                  <span class="pull-right text-muted small">12 min</span>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <i class="fa fa-envelope fa-fw"></i> Message Sent
+                  <span class="pull-right text-muted small">4 min</span>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <i class="fa fa-tasks fa-fw"></i> New Task
+                  <span class="pull-right text-muted small">4 min</span>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <div>
+                  <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                  <span class="pull-right text-muted small">4 min</span>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="text-center" href="#">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- /.dropdown-alerts -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-user fa-fw"></i>
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <a href="#">
+                <i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">
+                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <!-- 侧边栏 -->
+    <nav class="navbar-default navbar-side" role="navigation">
+      <div id="sideNav" href="">
+        <i class="fa fa-caret-right"></i>
+      </div>
+      <div id="sidebar" class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+          <li>
+            <a href="#">
+              <i class="fa fa-sitemap"></i> 客户管理
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level nav-active">
+              <li>
+                <a href="#">客户管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="../customer/client.html">客户管理</a>
+                  </li>
+                  <li>
+                    <a href="../customer/clientdetail.html">客户详情</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">订单管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="../customer/order.html">订单管理</a>
+                  </li>
+                  <li>
+                    <a href="../customer/orderdetail.html">订单详情</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">用户管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="../customer/user.html">用户管理</a>
+                  </li>
+                  <li>
+                    <a href="../customer/userdetail.html">用户详情</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-sitemap"></i> 管理工具
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level nav-active">
+              <li>
+                <a href="#">任务管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">任务管理
+                      <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-third-level nav-3">
+                      <li>
+                        <a href="#">任务管理</a>
+                      </li>
+                      <li>
+                        <a href="#">新增任务
+                          <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-third-level nav-4">
+                          <li>
+                            <a href="#">新增任务</a>
+                          </li>
+                          <li>
+                            <a href="#">添加任务客户</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">查看任务-指派/终止/验收</a>
+                      </li>
+                      <li>
+                        <a href="#">查看任务-仅查看</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">任务类型管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">任务类型管理</a>
+                  </li>
+                  <li>
+                    <a href="#">任务类型详情</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">预约管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">预约管理</a>
+                  </li>
+                  <li>
+                    <a href="#">预约详情</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">回访管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">回访管理</a>
+                  </li>
+                  <li>
+                    <a href="#">回访信息详情</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class='active'>
+            <a href="#">
+              <i class="fa fa-sitemap"></i> 客服工作台
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level in nav-active">
+              <li>
+                <a href="#">首页-客服</a>
+              </li>
+              <li class='active'>
+                <a href="#">我的客户-客户列表
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="./userlist.html">我的客户-客户列表</a>
+                  </li>
+                  <li>
+                    <a href="./userdetail.html">我的客户-客户详情</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">我的任务-任务列表
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="./tasklist.html">我的任务-任务列表</a>
+                  </li>
+                  <li>
+                    <a href="./unclaimed.html">查看我的任务-待领取</a>
+                  </li>
+                  <li>
+                    <a href="./userdetail.html">我的任务-任务详情</a>
+                  </li>
+                  <li>
+                    <a href="./completed.html">查看我的任务-执行完毕</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-sitemap"></i> 营销工具
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level nav-active">
+              <li>
+                <a href="#">问卷管理
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">问卷管理</a>
+                  </li>
+                  <li>
+                    <a href="#">创建/编辑调查问卷</a>
+                  </li>
+                  <li>
+                    <a href="#">问卷预览</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">查看问卷结果
+                  <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#">查看问卷结果</a>
+                  </li>
+                  <li>
+                    <a href="#">问卷明细列表</a>
+                  </li>
+                  <li>
+                    <a href="#">问卷明细</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="./views/aside/system.html">
+              <i class="fa fa-sitemap"></i>
+              <span>系统设置</span>
+              <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a href="./views/aside/branch.html">部门管理</a>
+              </li>
+              <li>
+                <a href="./views/aside/staff.html">员工管理</a>
+              </li>
+              <li>
+                <a href="./views/aside/account.html">账号管理</a>
+              </li>
+              <li>
+                <a href="#">催销管理</a>
+              </li>
+              <li>
+                <a href="#">图片管理</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+      <!-- 页面位置 -->
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class='header-title'>我的客户</h3>
+        </div>
+      </div>
+      <!-- 内容 -->
+      <div class="content" id='app'>
+        <!-- 筛选条件 -->
+        <div class='collect'>
+          <table>
+            <tr>
+              <td width='5%' align='right'>主账号</td>
+              <td width='20%'>
+                <input type="text" v-model='collect.account' name='account'>
+              </td>
+              <td width='5%' align='right'>公司名称</td>
+              <td width='20%'>
+                <input type="text" v-model='collect.company' name='company'>
+              </td>
+              <td width='5%' align='right'>联系电话</td>
+              <td width='20%'>
+                <input type="tel" v-model='collect.tel' name='tel'>
+              </td>
+              <td width='5%' align='right'>服务阶段</td>
+              <td width='20%'>
+                <select v-model='collect.stage' name='stage'>
+                  <option value="1">新客期</option>
+                  <option value="2">服务期</option>
+                  <option value="3">流转期</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td align='right'>领用人</td>
+              <td>
+                <input type="text" v-model='collect.user' name='user'>
+              </td>
+              <td align='right'>id</td>
+              <td>
+                <input type="text" v-model='collect.userid' name='userid'>
+              </td>
+              <td align='right'>qq</td>
+              <td>
+                <input type="text" v-model='collect.qq' name='qq'>
+              </td>
+              <td align='right'>网站来源</td>
+              <td>
+                <select name='source' v-model='collect.source'>
+                  <option value="1">服装</option>
+                  <option value="2">鞋子</option>
+                  <option value="3">箱包</option>
+                  <option value="4">首饰</option>
+                  <option value="5">家纺</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td align='right'>品类</td>
+              <td>
+                <select name='category' v-model='collect.category'>
+                  <option value="1">服装</option>
+                  <option value="2">鞋子</option>
+                  <option value="3">箱包</option>
+                  <option value="4">首饰</option>
+                  <option value="5">家纺</option>
+                </select>
+              </td>
+              <td colspan="6" align='right' class='pick'>
+                <button type="reset" class="btn btn-default user-reset">重置</button>
+                <button type="button" class="btn btn-default user-sure">确认筛选</button>
+                <button type="button" class="btn btn-default user-advanced">高级筛选</button>
+                <button type="button" class="btn btn-default user-show">显示/隐藏字段</button>
+                <!-- 显示/隐藏字段 -->
+                <div class='chioce'>
+                  <div>
+                    <input type="checkbox" class='all-select' @change='changeAll($event)' checked>
+                    <span>全选</span>
+                  </div>
+                  <ul>
+                    <li v-for='item in thead'>
+                      <input type="checkbox" class='single-select' @change='changeCol($event,item.id)' checked>
+                      <span>{{ item.name }}</span>
+                    </li>
+                    <li>
+                      <button type='button' class='btn btn-default btn-pass'>取消</button>
+                      <button type='button' class='btn btn-default btn-save'>保存设置</button>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+        <!-- 客户列表 -->
+        <div class='info'>
+          <table border>
+            <thead>
+              <tr>
+                <th width='1%'>
+                  <input type="checkbox" class='info-all'>
+                </th>
+                <th v-if='isshow' width='10%'>操作</th>
+                <th v-for='item in thead' v-if="item.is_show">{{ item.name }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr align='center' v-for='item in list'>
+                <td :data-id='item.id'>
+                  <input type="checkbox" class='info-single'>
+                </td>
+                <td>
+                  <a href="../customer/clientdetail.html">查看</a>
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.Company }}</td>
+                <td>{{ item.visited }}</td>
+                <td>{{ item.login }}</td>
+                <td>{{ item.receive }}</td>
+                <td>{{ item.time }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div id="test1" class='pull-right'></div>
+      </div>
+      <footer>
+        <p>Copyright &copy; 2016.Company name All rights reserved.More Templates
+          <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from
+          <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+        </p>
+      </footer>
+      <!-- /. PAGE WRAPPER  -->
+    </div>
+  </div>
+  <!-- /. WRAPPER  -->
+  <!-- JS Scripts-->
+
+  <script type="text/javascript" src="../../js/lib/require/require.js"></script>
+  <script type="text/javascript" src="../../js/common/main.js"></script>
+  <script>
+    require(['../../js/workbench/userlist.js'])
+  </script>
+</body>
+
+</html>

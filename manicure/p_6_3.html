@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="js/jquery-2.1.4.min.js" ></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- 添加色卡 -->
+            <div class="page">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="p_6.html" title="返回"><img src="images/8.png" alt="返回"/></a>
+                    添加色卡
+                </h1>
+                <div class="add_box">
+                    <input class="hide file_input" type="file" value="选择文件"/>
+                    <a class="btn3 add_btn_pic" href="javascript:;"><img src="images/11.png" alt="添加色卡"></a><br/>
+                    <!-- 选好的图片 -->
+                    <img class="chioced_pic hide" src="images/1.jpg" alt="图片"/><br/>
+                    <!-- 图片名称 -->
+                    <input class="name_input" type="text" placeholder="请输入图色名称"/><br/>
+                    <!-- 图片名称 -->
+                    <span class="pic_name"></span>
+                </div>
+                <!-- 如果可以下一步，将bg_color4 换为bg_color5 -->
+                <a id="js_add_pic" class="btn2 btn_type2 bg_color4" href="javascript:;" title="下一步">下一步</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //调整布局
+            $(function(){rs();});
+                $(window).resize(function(){rs();});
+            var rs=function(){
+                var dw=document.documentElement.clientWidth;
+                var dh=document.documentElement.clientHeight;
+                $("body").css({"font-size":1*dw/360+"em"});
+            }
+            $(function(){
+                // 添加色卡
+                $(".add_btn_pic").click(function(){
+                    $(".file_input").click();
+                });
+                // 填写色卡名字
+                $(".name_input").blur(function(){
+                    var txt=$(this).val();
+                    if(txt=="" || txt==null){
+
+                    }else{
+                        $(this).hide();
+                        $(".pic_name").text(txt).css({"opacity":1});
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+

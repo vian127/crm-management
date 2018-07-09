@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta charset="author" content="we"/>
+	<meta name="keywords" content="Dior迪奥美妆部"/>
+	<meta name="description" content="Dior迪奥美妆部"/>
+	<title>Dior</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<section id="container">
+		<!-- header -->
+		<section id="header">
+			<h1>年度考核评选规则</h1>
+		</section>
+		<!-- content -->
+		<section id="content" class="page3">
+			<div id="scroll">
+	            <img src="images/p3_pic.jpg" alt="规则"/>
+	        </div>
+		</section>
+	</section>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+		//调整布局
+        var myScroll = new IScroll('#content',
+                { 
+                    mouseWheel: true,
+                    hideScrollbar: true,
+                    click: true
+                }
+            );
+        var link_obj=GetRequest();
+        var userid=link_obj["userid"]?link_obj["userid"]:"";
+        // var rt_type=link_obj["rt_type"]?link_obj["rt_type"]:2;
+        // 获取页面url数据
+        function GetRequest(){ 
+            var url = location.search; //获取url中"?"符后的字串 
+            var theRequest = new Object(); 
+            if (url.indexOf("?") != -1) { 
+                var str = url.substr(1); 
+                strs = str.split("&"); 
+                for(var i = 0; i < strs.length; i ++) { 
+                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+                }
+            } 
+            return theRequest; 
+        };
+        $m={
+        	rs: function(){
+		        var limit=720;
+		        var dw=document.documentElement.clientWidth;
+		        var dh=document.documentElement.clientHeight;
+		        var fw=dw>limit?limit:dw;
+		        $("body").css({"font-size":1*fw/360+"em"});
+		        var ratio=1;
+		        if(dh/fw*720<1136){
+		            ratio=dh/fw*720/1136;
+		        }
+		        // if(dw>limit){
+		        //     $(".center_box").css({"left":(dw-limit)/2+"px"});
+		        // };
+		    },
+        }
+        $(function(){
+        	//禁止分享 
+			if (typeof WeixinJSBridge == "undefined"){
+			    if( document.addEventListener ){
+			        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			    }else if (document.attachEvent){
+			        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+			        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			    }
+			}else{
+			    onBridgeReady();
+			};
+			$m.rs();
+            $("#scroll>img").on("load",function(){
+            	myScroll.refresh();
+            });
+            //调整布局
+			$(window).resize(function(){$m.rs();});
+        });
+        // 微信静禁止分享
+		function onBridgeReady(){
+		    WeixinJSBridge.call('hideOptionMenu');
+		}
+	</script>
+</body>
+</html>

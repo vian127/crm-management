@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="author" content="we"/>
+    <meta name="keywords" content="Dior迪奥美妆部"/>
+    <meta name="description" content="Dior迪奥美妆部"/>
+    <title>Dior</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <!-- 模拟屏幕 -->
+    <section id="container">    
+        <!-- header -->
+        <section id="header">
+            <h1>我的成长</h1>
+        </section>
+        <!-- content -->
+        <section id="content" class="page2">
+            <ul class="p2_list clear">
+                <li class="js_now"><a href="javascript:;" title="总排名">总排名</a></li>
+                <li><a class="js_object" href="javascript:;" title="5项单项">5项单项</a></li>
+            </ul>
+            <!-- 总排名 -->
+            <div id="wrapper">
+                <div id="scroll1">
+                    <div class="p2_chart_box">
+                        <!-- 坐标轴 -->
+                        <div class="line_box">
+                            <div class="line_div">
+                                <div class="p2_line_t">
+                                    <!-- 坐标轴 -->
+                                    <div class="axis js_axis">
+                                        <!-- 人头 -->
+                                        <div class="my_div">
+                                            <span class="js_val js_myVal">30%</span>
+                                            <div class="p2_head_div">
+                                                <img class="my_h_pic" src="images/5.jpg" alt="头像"/>
+                                            </div>
+                                            <img class="p2_point" src="images/point_pic.png" alt="位置">
+                                        </div>
+
+                                    </div>
+                                    <!-- 牛的人头 -->
+                                    <div class="my_div firs_p">
+                                        <span class="js_val">100%</span>
+                                        <div class="p2_head_div">
+                                            <img class="first_h_pic" src="images/4.jpg" alt="头像"/>
+                                        </div>
+                                        <img class="p2_point" src="images/point_pic.png" alt="位置">
+                                    </div>
+                                </div>
+                            </div>
+                            <p>我的当月表现与第一名的对比</p>
+                        </div>
+                        <!-- 月份的图表 -->
+                        <h3 class="p2_tit">当月总分</h3>
+                        <div id="p2_chart1"></div>
+                        <p style="padding: 0 2em;font-size: 0.5em;margin-top: -2em;">注：分数是排名总和，越低越好。坐标轴做了反向处理。</p>
+                    </div>
+                    <!-- 十项全能 -->
+                    <div class="p2_chart_box hide p2_chart_box2">
+                        <!-- 具体项的数据 -->
+                        <ul class="p2_chart_list">
+                        </ul>
+                        <div id="chart_ele1"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- attention -->
+            <section id="atten">
+                <p class="att_p1"><img src="images/loading.gif" alt="等待...">正在努力加载中...</p>
+                <p class="att_p2">加载失败，请<a id="btnn" class="js_reload" href="javascript:;" title="重试">点击重试</a></p>
+                <p class="att_p3">暂时没有数据</p>
+            </section>
+        </section>
+        
+        <!-- footer -->
+        <!-- <section id="footer">
+            <a class="btn1 f_l page1_link" href="" title="月度表现">月度表现</a>
+            <a class="btn1 f_r page3_link" href="" title="年度考核评选规则">年度考核评选规则</a>
+        </section> -->
+    </section>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/mygrowthindex.js"></script>
+</body>
+</html>

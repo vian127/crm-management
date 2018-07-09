@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="author" content="we"/>
+    <meta name="keywords" content="Dior迪奥美妆部"/>
+    <meta name="description" content="Dior迪奥美妆部"/>
+    <title>Dior</title>
+    <link rel="stylesheet" type="text/css" href="css/swiper3.08.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <section id="container">
+        <section class="page6">
+            <div id="scroll">
+                <div class="p6_header"><h1>留言板</h1></div>
+                <div class="p6_content">
+                    <div class="p6_head_div"><img class="js_pic" src="images/defualt_pic.jpg" alt="头像"></div>
+                    <div class="p6_txt">
+                        <span>姓名:</span><span class="js_name"></span><br/>
+                        <span>工号:</span><span class="js_id"></span><br/>
+                        <span>柜台:</span><span class="js_counter"></span><br/>
+                        <span>时间:</span><span class="js_date"></span>
+                    </div>
+                    <textarea class="txt_area" placeholder="请在此输入你的问题（字数不超过100字）"></textarea>
+                    <a class="p6_btn js_btn btn1" href="javascript:;" title="提交">提交问题</a>
+                </div>
+                <div class="p6_atten">
+                    <!-- 加载失败提示 -->
+                    <div class="p6_add_div">页面加载失败！请<a href="page6.html" title="点击重试">点击重试</a></div>
+                    <div class="success_div">提交成功！<a class="js_back" href="javascript:;" title="点击返回">点击返回</a></div>
+                    <div class="error_div">提交失败！请
+                        <a class="js_back" href="javascript:;" title="点击重试">点击重试</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- 提示 -->
+    <div id="atten_box" class="center_box">
+        <div id="atten_txt">请填写问题内容！</div>
+        <div class="bg_div"></div>
+    </div>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript">
+        // 定义滚动
+        var myScroll = new IScroll('.page6',
+            { 
+                mouseWheel: true,
+                hideScrollbar: true,
+                click: true
+            }
+        );
+        // 返回数组对象
+        var return_arr={};
+        // 自定义方法
+        var $m={
+            ajax_link:"http://givenchy.weshwx.cn/dior_golden_bc/",
+            // 字体设置
+            rs: function(){
+                var limit=720;
+                var dw=document.documentElement.clientWidth;
+                var dh=document.documentElement.clientHeight;
+                var fw=dw>limit?limit:dw;
+                $("body").css({"font-size":1*fw/360+"em"});
+                var ratio=1;
+                if(dh/fw*720<1136){
+                    ratio=dh/fw*720/1136;
+                }
+                if(dw>limit){
+                    $(".center_box").css({"left":(dw-limit)/2+"px"});
+                };
+                myScroll.refresh()
+            },
+        }
+        var link_obj=GetRequest();
+        var userid=link_obj["userid"]?link_obj["userid"]:"";
+        // var rt_type=link_obj["rt_type"]?link_obj["rt_type"]:2;
+        // 获取页面url数据
+        function GetRequest(){ 
+            var url = location.search; //获取url中"?"符后的字串 
+            var theRequest = new Object(); 
+            if (url.indexOf("?") != -1) { 
+                var str = url.substr(1); 
+                strs = str.split("&"); 
+                for(var i = 0; i < strs.length; i ++) { 
+                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+                }
+            } 
+            return theRequest; 
+        };
+        $(function(){
+            //禁止分享 
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+                    document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                }
+            }else{
+                onBridgeReady();
+            };
+            $m.rs();
+            // 获取日期
+            var t=new Date();
+            var y=t.getFullYear();
+            var m=t.getMonth()+1;
+            m=m<10?"0"+m:m;
+            $(".js_date").text(y+"-"+m);
+            // 请求人员信息
+            // $.ajax({
+            //     type: "POST",
+            //     url: $m.ajax_link+"get_user",
+            //     data: {'userid':userid,'rt_type':5},
+            //     dataType: "json",
+            //     success: function(data){
+            //         console.log(data);
+            //         return_arr=data;
+            //         $(".js_pic").attr("src",data["avatar"]);
+            //         $(".js_name").text(data["name"]);
+            //         $(".js_id").text(data["userid"]);
+            //         $(".js_counter").text(data["counter"]);
+            //     },
+            //     error: function(XMLHttpRequest,textStatus,errorThrown){
+            //         console.log(XMLHttpRequest);
+            //         console.log(textStatus);
+            //         console.log(errorThrown);
+            //         $(".p6_content").hide();
+            //         $(".p6_atten").show();
+            //         $(".p6_add_div").show();
+            //     }
+            // });
+            // 提交问题
+            $(".js_btn").on("click",function(){
+                toSub($(this));
+            });
+            // 返回
+            $(".js_back").on("click",function(){
+                $(".js_btn").on("click",function(){
+                    toSub($(this));
+                }).text("提交问题");
+                $(".txt_area").val("");
+            });
+            //调整布局
+            $(window).resize(function(){$m.rs();});
+        });
+        function toSub(obj){
+            var txt=$(".txt_area").val();
+            if(txt=="" || txt==undefined){
+                $("#atten_txt").text("请填写问题内容！");
+                $("#atten_box").fadeIn(200,function(){
+                    $("#atten_box").delay(500).fadeOut(500);
+                });
+            }else{
+                return_arr["content"]=txt;
+                // 可提交
+                obj.off("click").text("提交中...");
+                $.ajax({
+                    type: "POST",
+                    url: $m.ajax_link+"ajax_messageboard_save",
+                    data: return_arr,
+                    dataType: "json",
+                    success: function(){
+                        $("#atten_txt").text("提交成功！");
+                        $("#atten_box").fadeIn(200,function(){
+                            $("#atten_box").delay(500).fadeOut(500);
+                        });
+                        obj.on("click",function(){
+                            toSub($(this));
+                        }).text("提交问题");
+                        $(".txt_area").val("");
+                    },
+                    error: function(){
+                        $("#atten_txt").text("提交失败！请重试。");
+                        $("#atten_box").fadeIn(200,function(){
+                            $("#atten_box").delay(500).fadeOut(500);
+                        });
+                        obj.on("click",function(){
+                            toSub($(this));
+                        }).text("提交问题");
+                        $(".txt_area").val("");
+                    }
+                });
+            }
+        }
+        // 微信静禁止分享
+        function onBridgeReady(){
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+    </script>
+</body>
+</html>

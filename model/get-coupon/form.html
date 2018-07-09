@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>珀莱雅</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<img class="float_pic" src="images/bg1.jpg" alt="背景图片"/>
+	<div class="container">
+		<div class="top_div"></div>
+		<div class="form_txt">
+			你需要先绑定会员身份
+		</div>
+		<div class="form_div">
+			<form>
+				<input class="inputstyle user_info" type="text" maxlength="11" pattern="[0-9]*" name="手机号码" value="手机号码"/>
+				<div class="yzm"><span id="checkbut" class="getYzm">获取验证码(60)</span></div>
+				<input class="inputstyle user_info" type="text" name="验证码" value="验证码"/>
+				<input id="submit_form" class="btn form_btn inputstyle" type="button"/>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/form.js"></script>	
+</body>
+</html>

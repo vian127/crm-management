@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>迈世旅游</title>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/easy_visa.css" />
+        <script src="js/jquery-2.1.4.min.js" ></script>
+        <script src="js/pinYin.js"></script>
+        <script src="js/frame.js" ></script>
+        <script src="http://api.map.baidu.com/api?v=2.0&ak=5ZmIO6bXbDtdllzdMZwfXmFm"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- 选择目的地 -->
+            <div class="page page1">
+                <h1 class="tit_h1">
+                    选择目的地
+                    <a class="btn2 pos_btn js_pos_btn" href="javascript:;" title="定位"></a>
+                </h1>
+                <!-- 搜索框 -->
+                <div class="search_box bg_color7"><input class="search_input js_country" type="text" value="搜索"/></div>
+                <!-- 地点列表 -->
+                <ul class="pos_list">
+                    <!-- 搜索结果 -->
+                    <li class="country_li hide">
+                        <h2>搜索结果</h2>
+                        <ol class="recommend_list country_list">
+                            <!-- 图片建议尺寸 180*120 -->
+                            
+                        </ol>
+                    </li>
+                    <!-- 热门国家 -->
+                    <li class="hot_li">
+                        <h2>热门国家</h2>
+                        <ol class="recommend_list">
+                            <!-- 图片建议尺寸 180*120 -->
+                            <li><a class="btn1 js_btn1" href="javascript:;"><img class="pos_pic" src="images/4.jpg" alt="美国"/><span class="pos_name">美国</span></a></li>
+                            <li><a class="btn1 js_btn1" href="javascript:;"><img class="pos_pic" src="images/3.jpg" alt="韩国"/><span class="pos_name">韩国</span></a></li>
+                            <li><a class="btn1 js_btn1" href="javascript:;"><img class="pos_pic" src="images/2.jpg" alt="法国"/><span class="pos_name">法国</span></a></li>
+                        </ol>
+                    </li>
+                </ul>
+                <!-- 国家列表 -->
+                <ul class="pos_list country_ul"></ul>
+                <!-- 提示信息 -->
+                <div class="attention_txt hide"></div>
+            </div>
+            <!-- 选择常驻地 -->
+            <div class="page page2">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" data-page=".page1" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    选择常驻地
+                </h1>
+                <!-- 搜索框 -->
+                <div class="search_box bg_color7"><input class="search_input js_city" type="text" value="搜索"/></div>
+                <!-- 地点列表 -->
+                <ul class="pos_list city_box">
+                    <!-- 搜索结果 -->
+                    <li class="city_li hide">
+                        <h2>搜索结果</h2>
+                        <ol class="pos_item_list city_list">
+                            <!-- 图片建议尺寸 180*120 -->
+                            
+                        </ol>
+                    </li>
+                    <!-- 热门推荐 -->
+                    <li>
+                        <h2>定位</h2>
+                        <a class="btn1 js_btn2" href="javascript:;"><span class="pos_city_spn pos_name"></span></a>
+                    </li>
+                </ul>
+                <!-- 城市列表 -->
+                <ul class="pos_list city_ul"></ul>
+                <!-- 提示信息 -->
+                <div class="attention_txt1 hide"></div>
+            </div>
+            <!-- 选择签证类型 -->
+            <div class="page page3 bg_color7">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" data-page=".page1" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    选择签证类型
+                </h1>
+                <ul class="visa_type_list">
+                    <li>
+                        <!-- 建议尺寸640*320 -->
+                        <img class="visa_pic" src="images/6.jpg" alt="图片"/>
+                        <div class="visa_detail">
+                            <h3 class="clear">
+                                <span class="w_color3">美国个人旅游签证</span>
+                                <span class="font09">北京邻区</span>
+                                <span class="float_spn font09">已售:1958</span>
+                            </h3>
+                            <div class="clear"><span class="font12 price_spn">￥950.0</span><span class="old_price font09">原价 ￥1950.0</span><a class="r_txt btn2 btn_type3 bg_color2 js_btn3" href="javascript:;">查看详情</a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- 建议尺寸660*300 -->
+                        <img class="visa_pic" src="images/7.jpg" alt="图片"/>
+                        <div class="visa_detail">
+                            <h3 class="clear">
+                                <span class="w_color3">美国探亲访友签证</span>
+                                <span class="font09">北京邻区</span>
+                                <span class="float_spn font09">已售:1958</span>
+                            </h3>
+                            <div class="clear"><span class="font12 price_spn">￥950.0</span><span class="old_price font09">原价 ￥1950.0</span><a class="r_txt btn2 btn_type3 bg_color2 js_btn3" href="javascript:;">查看详情</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 签证办理说明 -->
+            <div class="page page4">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn back_btn1" href="javascript:;" data-page=".page3" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    签证办理说明
+                </h1>
+                <!-- 图片 -->
+                <div class="pic_box">
+                    <img src="images/8.jpg" alt="图片"/>
+                    <div class="c_div">
+                        <img src="images/4.jpg" alt="国旗"/>
+                        <span>美国</span>
+                    </div>
+                </div>
+                
+                <!-- 详细内容 -->
+                <div class="detail_box">
+                    <h2>
+                        <div class="w_color1 clear">探亲访友签证<span class="r_txt w_color4">￥950.0</span></div>
+                        <div class="font09 clear">
+                            <span class="spn1">北京领区</span><span class="r_txt old_price">原价 ￥1950.0</span>
+                        </div>
+                    </h2>
+                    <div class="txt_box1 font09">
+                        <div class="txt_div">
+                            <span class="spn1">签证类型:</span><span>探亲访友类型</span>
+                            <span class="spn1">办理所需:</span><span>13个工作日</span>
+                            <span class="spn1">有效期限:</span><span>3个月</span>
+                        </div>
+                        <div class="txt_div">
+                            <span class="spn1">入境次数:</span><span>单次</span>
+                            <span class="spn1">最多停留:</span><span>45天</span>
+                            <span class="spn1">需要面试:</span><span>否</span>
+                        </div>
+                    </div>
+
+                    <h2>邻区说明</h2>
+                    <div class="txt_box1 font09">
+                        <span>北京、辽宁、天津、陕西、甘肃</span>
+                    </div>
+
+                    <h2>所需资料</h2>
+                    <!-- tab -->
+                    <ul class="tab_list clear">
+                        <li class="current_li">在职人员</li>
+                        <li>退休老人</li>
+                        <li>无业人员</li>
+                        <li>学龄前</li>
+                        <li>在校学生</li>
+                    </ul>
+                    <!-- 切换内容 -->
+                    <div class="tab_div" style="display: block">
+                        <ul class="tab_item_list">
+                            <li><span class="w_color5">个人身份证明:</span>护照,照片,户口本,身份证,个人信息表,结婚证或离婚证,个人简历,电子照片</li>
+                            <li><span class="w_color5">资产证明:</span>近6个月活期明细对账单原件 (必选) ,房产证明,车产证明,存款证明,3个月信用卡对账单原件 (可选)</li>
+                            <li><span class="w_color5">工作证明:</span>在职证明,营业执照或组织机构代码证</li>
+                            <li><span class="w_color5">其他证明:</span>最高学历,国外知名景点照片原件 ,全家福照片</li>
+                        </ul>
+                    </div>
+                    <div class="tab_div">
+                        <ul class="tab_item_list">
+                            <li><span class="w_color5">个人身份证明:</span>护照,照片,户口本,身份证,个人信息表,结婚证或离婚证,个人简历,电子照片</li>
+                            <li><span class="w_color5">资产证明:</span>近6个月活期明细对账单原件 (必选) ,房产证明,车产证明,存款证明,3个月信用卡对账单原件 (可选)</li>
+                            <li><span class="w_color5">工作证明:</span>在职证明,营业执照或组织机构代码证</li>
+                            <li><span class="w_color5">其他证明:</span>最高学历,国外知名景点照片原件 ,全家福照片</li>
+                        </ul>
+                    </div>
+                    <div class="tab_div">
+                        <ul class="tab_item_list">
+                            <li><span class="w_color5">个人身份证明:</span>护照,照片,户口本,身份证,个人信息表,结婚证或离婚证,个人简历,电子照片</li>
+                            <li><span class="w_color5">资产证明:</span>近6个月活期明细对账单原件 (必选) ,房产证明,车产证明,存款证明,3个月信用卡对账单原件 (可选)</li>
+                            <li><span class="w_color5">工作证明:</span>在职证明,营业执照或组织机构代码证</li>
+                            <li><span class="w_color5">其他证明:</span>最高学历,国外知名景点照片原件 ,全家福照片</li>
+                        </ul>
+                    </div>
+                    <div class="tab_div">
+                        <ul class="tab_item_list">
+                            <li><span class="w_color5">个人身份证明:</span>护照,照片,户口本,身份证,个人信息表,结婚证或离婚证,个人简历,电子照片</li>
+                            <li><span class="w_color5">资产证明:</span>近6个月活期明细对账单原件 (必选) ,房产证明,车产证明,存款证明,3个月信用卡对账单原件 (可选)</li>
+                            <li><span class="w_color5">工作证明:</span>在职证明,营业执照或组织机构代码证</li>
+                            <li><span class="w_color5">其他证明:</span>最高学历,国外知名景点照片原件 ,全家福照片</li>
+                        </ul>
+                    </div>
+                    <div class="tab_div">
+                        <ul class="tab_item_list">
+                            <li><span class="w_color5">个人身份证明:</span>护照,照片,户口本,身份证,个人信息表,结婚证或离婚证,个人简历,电子照片</li>
+                            <li><span class="w_color5">资产证明:</span>近6个月活期明细对账单原件 (必选) ,房产证明,车产证明,存款证明,3个月信用卡对账单原件 (可选)</li>
+                            <li><span class="w_color5">学历证明:</span>在职证明,营业执照或组织机构代码证</li>
+                            <li><span class="w_color5">其他证明:</span>最高学历,国外知名景点照片原件 ,全家福照片</li>
+                        </ul>
+                    </div>
+                    <h2>提示说明</h2>
+                    <div class="txt_box1 font09 bottom_div">
+                        <p>1、此签证使馆要求申请者在网上预约、面试；</p>
+                        <p>2、所有材料的原件请于面试时带齐，便于签证官核查（身份证，户口本，结/离婚证，房产证，机动车驾驶证，银行证明等）；</p>
+                        <p>3、请申请过移民或非移民签证的申请者，无论其以前的申请是否被批准请告知我们；</p>
+                        <p>4、 美国有直系亲属如果前往探望请如实说明。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 立即购买 -->
+                <div class="fix_box">
+                    <div class="btn_bg_div"></div>
+                    <a id="js_buy" class="btn2 btn_type4 bg_color2" href="javascript:;" title="立即购买">立即购买</a>
+                </div>
+            <!-- 订单填写-填写联系人 -->
+            <div class="page page5">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn back_btn2" href="javascript:;" data-page=".page4" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    订单填写-填写联系人
+                </h1>
+                <div class="user_div">
+                    <h2 class="font11 n_bg">
+                        探亲访友签证<span class="r_txt w_color4 js_price_spn">￥950.0</span>
+                    </h2>
+                    <div class="num_div font09 clear">
+                        <span class="spn3">选择人数:</span>
+                        <div class="add_num_div">
+                            <span class="reduce_spn"></span>
+                            <input class="num" type="text" value="1"/>
+                            <span class="add_spn"></span>
+                        </div>
+                    </div>
+
+
+                    <!-- 选择联系人 -->
+                    <div class="status_div">
+                        <div class="contact_tit">选择联系人</div>
+                        <ul class="order_list">
+                            <li>
+                                <span>死啦死啦</span>
+                                <div class="check_div">
+                                    <span class="bg_color3">&nbsp;</span>
+                                    <img src="images/20.png" alt="icon"/>
+                                </div>
+                            </li>
+                            <li>
+                                <span>我来个去</span>
+                                <div class="check_div">
+                                    <span class="bg_color3">&nbsp;</span>
+                                    <img src="images/20.png" alt="icon"/>
+                                </div>
+                            </li>
+                            <!-- 新增联系人 -->
+                            <li class="add_contact">
+                                <a class="btn5" href="javascript:;">+ 新增联系人</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 填写联系人 -->
+                    <div class="status_div hide">
+                        <h2 class="n_bg">填写联系人信息</h2>
+                        <div class="txt_box2 font09">
+                            <span class="spn2">姓名:</span>
+                            <input class="input_area" type="text"/>
+                        </div>
+
+                        <div class="txt_box2 font09">
+                            <span class="spn2">联系电话:</span>
+                            <input class="input_area" type="text" maxlength="11" pattern="[0-9]*"/>
+                        </div>
+
+                        <div class="txt_box2 font09">
+                            <span class="spn2">电子邮箱:</span>
+                            <input class="input_area" type="text"/>
+                        </div>
+
+                        <div class="txt_box2 font09">
+                            <span class="spn2" style="vertical-align: top">联系地址:</span>
+                            <textarea class="input_area1" rows="5" placeholder="若无需要，可不填写"></textarea>
+                        </div>
+                    </div>
+                    
+                    <h2 class="clear w_color1" style="padding: 1em 0em;text-align: center">
+                        合计:<span class="w_color4">￥950.0</span>
+                    </h2>
+                    <!-- 下单 -->
+                    <a id="js_order" class="btn2 btn_type2 bg_color2" href="javascript:;" title="立即下单">立即下单</a>
+                </div>
+            </div>
+
+            <!-- 订单确认 -->
+            <div class="page page6">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" data-page=".page5" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    订单确认
+                </h1>
+                <div class="detail_box">
+                    <h2 class="w_color1">订单详情</h2>
+                    <div class="txt_box3 font09">
+                        <span class="spn2">产品名称:</span>
+                        <div class="txt_div_r">
+                            奥地利-探亲访友签证
+                        </div>
+                        <span class="spn2">产品价格:</span>
+                        <div class="txt_div_r">
+                            ￥54814.0
+                        </div>
+                        <span class="spn2">购买数量:</span>
+                        <div class="txt_div_r">
+                            2
+                        </div>
+                        <span class="spn2">支付总额:</span>
+                        <div class="txt_div_r w_color4 font12">
+                            ￥15414.0
+                        </div>
+                    </div>
+
+                    <h2 class="w_color1">联系人信息</h2>
+                    <div class="txt_box3 font09">
+                        <span class="spn2">姓名:</span>
+                        <div class="txt_div_r">
+                            死啦死啦
+                        </div>
+                        <span class="spn2">联系电话:</span>
+                        <div class="txt_div_r">
+                            1516545465
+                        </div>
+                        <span class="spn2">电子邮箱:</span>
+                        <div class="txt_div_r">
+                            15415452@.qq.com
+                        </div>
+                        <span class="spn2">联系地址:</span>
+                        <div class="txt_div_r">
+                            上海市长宁区武定路15111号
+                        </div>
+                    </div>
+
+                    <!-- 支付 -->
+                    <a id="js_to_buy" class="btn2 btn_type2 bg_color2" href="javascript:;" title="支付">支付</a>
+                </div>
+            </div>
+            <!-- 订单支付 -->
+            <div class="page page7">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" data-page=".page6" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    订单支付
+                </h1>
+
+                <div class="txt_box2 font09">
+                    <span class="spn2">产品名称:</span>
+                    <div class="txt_div_r">
+                        奥地利签证
+                    </div>
+                </div>
+                <div class="txt_box2 font09">
+                    <span class="spn2">支付总额:</span>
+                    <div class="txt_div_r">
+                        ￥15845.0
+                    </div>
+                </div>
+                <div class="txt_box2 font09">
+                    <span class="spn2">收款方:</span>
+                    <div class="txt_div_r">
+                        北京迈世旅游有限公司
+                    </div>
+                </div>
+
+                <!-- 立即支付 -->
+                <a id="js_buy_now" class="btn2 btn_type2 bg_color2" href="javascript:;" title="立即支付">立即支付</a>
+            </div>
+
+            <!-- 支付成功 -->
+            <div class="page page8">
+                <h1 class="tit_h1">
+                    支付成功
+                </h1>
+                <div class="success_div">
+                    <h2>你好，你的商品已经支付成功</h2>
+                    <div class="txt_box3 font09">
+                        <span class="spn2">付款金额:</span>
+                        <div class="txt_div_r w_color4 font12">
+                            ￥54814.0
+                        </div>
+                        <span class="spn2">商品详情:</span>
+                        <div class="txt_div_r">
+                            奥地利探亲访友签证
+                        </div>
+                        <span class="spn2">支付方式:</span>
+                        <div class="txt_div_r">
+                            微信支付
+                        </div>
+                        <span class="spn2">交易单号:</span>
+                        <div class="txt_div_r">
+                            4574523432545435
+                        </div>
+                    </div>
+                    <!-- 进入我的订单 -->
+                    <div class="sign_order">
+                        <a class="btn3 font08" href="my_order.html">进入【我的订单】，查看订单详情</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 浮层 -->
+        <div id="fix_box">
+            <!-- 占位 -->
+            <div id="placeholder_div"></div>
+            <!-- 背景 -->
+            <div id="bg_div"></div>
+            <!-- 提示 -->
+            <div id="tip_txt">我勒个去啊啊</div>
+        </div>
+        <script type="text/javascript" src="js/easy_visa.js"></script>
+    </body>
+</html>
+

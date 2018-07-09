@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>angular practice3</title>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--[if lte IE 9]>
+	    	<script type="text/javascript" src="js/websdk.shim.js"></script>
+	    <![endif]-->
+	    <script type="text/javascript" src="js/strophe.js"></script>
+	    <script type="text/javascript" src="js/websdk-1.1.2.js"></script>
+		<script type="text/javascript" src="js/webim.config.js"></script>
+	</head>
+	<body>
+		<div id="content"></div>
+		<button id="btn" title="发送">发送</button>
+		<form id="register" name="register">
+			<input name="username" type="text" placeholder="username">
+			<input name="password" type="password" placeholder="password">
+			<input name="nickname" type="text" placeholder="nickname">
+			
+		</form>
+		<button id="register-btn" title="注册">注册</button><br>
+		<form id="sign-form" name="sign-form">
+			<input name="username" type="text" placeholder="username">
+			<input name="password" type="password" placeholder="password">
+			
+		</form>
+		<button id="signIn" title="登录">登录</button><br>
+		<textarea id="content-txt" cols="80" rows="10"></textarea>
+		<button id="send-btn" title="发送">发送</button>
+		<p id="info-p"></p>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+/* @author lut000 */
+@charset "utf-8";
+*{ margin:0; padding:0;}
+a{text-decoration: none;}
+table{border-collapse:collapse;}
+li {list-style: none;}
+img{border: none;}
+input{outline: none;border-radius: 0;}
+body{font-size: 14px;font-family: "黑体";overflow-x:auto;min-width: 1024px;}
+html,body{width: 100%;}
+/****************公用样式**************/
+.w1024{width: 1024px;margin: auto;}
+h3{font-size: 16px;}
+h2{font-size: 24px;text-align: center;}
+/*头部*/
+#header{}
+.logo_pic{width: 120px}
+.sign_box{text-align: right;padding: 10px 0;}
+.sign_box>img{width: 1.8em;margin-right: 0.5em;vertical-align: middle;}
+.sign_box>span{display: inline-block;vertical-align: middle;}
+.sign_div{display: inline-block;margin-left: 50px;vertical-align: middle;}
+.sign_div a:hover{color: #1c87f4}
+.type_btn1{display: inline-block;margin: 15px 5px;padding: 0px 10px;font-weight: bold;border-right: 1px solid #fff;}
+.type_btn2{display: inline-block;font-weight: bold;*margin: 15px 0px;}
+
+.nav_box{padding: 15px 0;background: #0072ac}
+.nav{float: right;}
+.nav>li{display: inline-block;margin: 0 15px}
+.nav>li>a{font-weight: bold;display: block;padding: 15px 10px;font-size: 16px;color: #98ceed}
+.nav>li>a,.nav>li>a:visited{color: #98ceed}
+.nav>li>a:hover,.nav>li>a:active{color: #fff}
+.nav>li>a.current_nav{color: #fff;border-bottom: 1px solid #fff}
+.about_nav{position: absolute;right: -0.5em;top: 68px;font-size: 14px;background-color: #fff;box-shadow: 3px 3px 30px #333;z-index: 1000;display: none;}
+.about_nav>li{padding: 0 10px}
+.about_nav>li>a{display: block;padding: 10px 0px;border-bottom: 1px solid #333;word-break: keep-all;}
+.about_nav>li>a:hover{color: #1c87f4}
+.about_nav>li.current_nav>a{color: #1c87f4;font-weight: bold;}
+/*中部*/
+#content{}
+/*按钮样式*/
+.btn_type1{display: inline-block;font-size: 16px;padding: 5px 30px;background-color: #007ab8;border-radius: 3px;}
+.btn_type2{display: inline-block;font-size: 16px;padding: 5px 30px;background-color: #007ab8;border-radius: 3px;}
+.btn_type3{display: inline-block;font-size: 16px;padding: 5px 30px;background-color: #f75f03;border-radius: 3px;}
+/*底部*/
+#footer{position: relative;padding: 10px 0;background-color: #001520}
+.main{float: left;width: 65%;}
+.main h3{font-size: 16px;margin: 10px 0;color: #fff;}
+.main .list{margin-left: 5em;}
+.main .list>li{display: inline-block;margin: 5px 10px;}
+.main .list>li>a{display: block;}
+.main .list>li>a:hover{text-decoration: underline;}
+.code_div{float: right;width: 35%;text-align: right;margin-top: 50px}
+.code_div>a{display: inline-block;margin: 15px;text-align: center;}
+.code_div>a>img{width: 125px;margin-bottom: 10px;}
+.pos_div{margin-left: 5em;margin-top: 25px;padding-left: 10px;color: #fff}
+.rights_div{margin-left: 6em;padding: 20px 0;text-align: center;color: #fff;}
+.rights_div>span,.rights_div>a{vertical-align: middle;}
+/* 清楚浮动 */
+.clear:after {clear: both;content : "";display : block;height : 0;visibility : hidden;}
+/*按钮颜色*/
+.btn{border-radius: 0.2em;}
+.btn1,.btn1:visited,.btn1:hover,.btn1:focus{color: #000;}
+.btn2,.btn2:visited,.btn2:hover,.btn2:focus{color: #fff;}
+.btn3,.btn3:visited,.btn3:hover,.btn3:focus{color: #333333;}
+.btn4,.btn4:visited,.btn4:hover,.btn4:focus{color: #1c87f4;}
+
+/*背景颜色*/
+.bg_color1{background-color: #576065}
+.bg_color2{background-color: #106aa4}
+.bg_color3{background-color: #f0f0f0}
+/*文字颜色*/
+.w_color1{color: #fff}
+.w_color2{color: #2e3c79}
+/*文字对齐方式*/
+.txt_r{text-align: right;}
+.txt_l{text-align: left;}
+.txt_c{text-align: center;}
+.hide{display: none}
+/*浮动*/
+.f_l{float: left;}
+.f_r{float: right;}
+/*有无背景、边框*/
+.n_bg{background: none;}
+.n_b{border: none !important;}
+/*字体大小*/
+.font16{font-size: 16px}
+.font18{font-size: 18px}
+/*定位*/
+.pos_r{position: relative;}

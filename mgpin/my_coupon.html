@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="we"/>
+        <meta name="keywords" content="毛戈平,整点抢券"/>
+        <meta name="description" content="关注MGPIN官方微信，参与微信整点抢礼券活动"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>MGPIN</title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container">
+            <!-- 首页 -->
+            <div class="page page4">
+                <div class="scroll">
+                    <!-- 头部 -->
+                    <div class="header">
+                    </div>
+                    <!-- 中间 -->
+                    <div class="content">
+                        <ul class="coupon_list">
+                            <li>
+                                <label>抢券时间：</label><span>2016.4.5 14:00</span><br/>
+                                <label>通用抵用券：</label><span>价值80元品牌节日代金劵(满799抵用）本券仅限使用一次。</span><br/>
+                                <label>使用代码为：</label><span>12345678</span><br/>
+                                <label>使用专柜：</label><span>全国MGPIN专柜</span>
+                            </li>
+                            <li>
+                                <label>抢券时间：</label><span>2016.4.5 14:00</span><br/>
+                                <label>通用抵用券：</label><span>价值80元品牌节日代金劵(满799抵用）本券仅限使用一次。</span><br/>
+                                <label>使用代码为：</label><span>12345678</span><br/>
+                                <label>使用专柜：</label><span>全国MGPIN专柜</span>
+                            </li>
+                            <li>
+                                <label>抢券时间：</label><span>2016.4.5 14:00</span><br/>
+                                <label>通用抵用券：</label><span>价值80元品牌节日代金劵(满799抵用）本券仅限使用一次。</span><br/>
+                                <label>使用代码为：</label><span>12345678</span><br/>
+                                <label>使用专柜：</label><span>全国MGPIN专柜</span>
+                            </li>
+                        </ul>  
+                    </div>
+                    <!-- 底部 -->
+                    <div class="footer">
+                        <a class="btn1" href="my_coupon.html" title="查看我的优惠券">查看我的优惠券</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 提示信息 -->
+        <section id="atten_box" class="center_box">
+            <div class="top_div"></div>
+            <p class="p1">
+                <span class="type3"></span>
+            </p>
+            <p class="p2"><a class="btn3" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+            <p class="p3">对不起，<br> 本次活动已经结束了，<br>请继续关注毛戈平的其他活动。</p>
+        </section>
+        <section id="bg_div" class="center_box"></section>
+        <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript">
+            // 定义滚动
+            var myScroll = new IScroll('.page4',{mouseWheel: true,hideScrollbar: false,click: true});
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: encodeURI(window.location.href),
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    var ratio=1;
+                    if(dh/fw*720<1136){
+                        ratio=dh/fw*720/1136;
+                    }
+                    if(dw>limit){
+                        $(".center_box").css({"left":(dw-limit)/2+"px"});
+                    };
+                    $(".coupon_list>li").css({"font-size":ratio*0.8+"em"});
+                    myScroll.refresh();
+                },
+                // 居中显示
+                toCenter:function(obj,par){
+                    var dh=par.height();
+                    var oh=obj.outerHeight();
+                    obj.css({"margin-top": (dh-oh)/2-50+"px"});
+                },
+            }
+            $(function(){
+                // 绑定滚动
+                $m.rs();
+                $("#atten_box").fadeOut(200,function(){
+                });
+                // 点击抢券
+                $(".js_sub").on("click",function(){
+                    subFunc($(this));
+                });
+                $(window).on("resize",function(){$m.rs()});
+            });
+
+/*----------------微信分享-----------------*/
+// 分享函数
+function shareFunc(arr){
+    wx.config({
+        debug: false,
+        appId: arr["appid"], 
+        timestamp: arr["timestamp"], 
+        nonceStr: arr["nonceStr"], 
+        signature: arr["signature"], 
+        jsApiList:[
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'hideMenuItems',
+        ] 
+    });
+    wx.ready(function(){
+
+        wx.onMenuShareTimeline({
+            title: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享标题
+            link: "http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html", // 分享链接
+            imgUrl: "http://bos.bj.baidubce.com/we-sh2/laneige/applyinfo/yun/201603/images/share.jpg", // 分享图标
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享标题
+            desc: '#兰芝2016明星礼赠#快来领取最受欢迎的兰芝明星产品四件套~', // 分享描述
+            link: "http://cdn.wemediacn.com/webpage_laneige/api/CoverService.aspx?r_url=http://weapp.wemediacn.com/laneige/applyinfo/201603/index.html", // 分享链接
+            imgUrl: "http://bos.bj.baidubce.com/we-sh2/laneige/applyinfo/yun/201603/images/share.jpg", // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        // 隐藏按钮
+        wx.hideMenuItems({
+            menuList: [
+                'menuItem:readMode', // 阅读模式
+                'menuItem:copyUrl' ,// 复制链接
+                'menuItem:share:qq',//分享qq
+                'menuItem:share:weiboApp',//分享微博
+                'menuItem:share:facebook',//分享到FB
+                'menuItem:jsDebug',//调试
+                'menuItem:editTag',//编辑标签
+                'menuItem:delete',//删除
+                'menuItem:originPage',//原网页
+                'menuItem:openWithQQBrowser',//qq浏览器打开
+                'menuItem:openWithSafari',//safari浏览器打开
+                'menuItem:share:email',//邮件
+                'menuItem:share:brand',//特殊公众号
+            ],
+            success: function (res) {
+                console.log("ok");
+            },
+            fail: function (res) {
+                console.log(JSON.stringify(res));
+            }
+        });
+    });
+}
+        </script>
+    </body>
+   
+</html>

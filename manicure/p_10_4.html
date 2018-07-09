@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="js/jquery-2.1.4.min.js" ></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- 作品详情 -->
+            <div class="page">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="p_6.html" title="返回"><img src="images/8.png" alt="返回"/></a>
+                    作品详情
+                    <a class="btn2 btn_type4 js_btn6" href="javascript:;" title="举报">举报</a>
+                </h1>
+                <div class="content1">
+                    <img src="images/2.jpg" alt="作品图片"/>
+                    <div class="personnel_detail">
+                        <img src="images/13.png" alt="头像"/>
+                        <div>
+                            <span>小美</span><br/>
+                            <span class="w_color11">美甲师</span><span class="w_color11">财富值</span><span class="w_color3">300</span>
+                        </div>
+                        
+                        <!-- 分享 -->
+                        <a class="btn1 btn_type3 js_btn1 share_btn" href="javascript:;" title="分享"><img src="images/15.png" alt="分享"/></a>
+                        <!-- 收藏 -->
+                        <a class="btn1 btn_type3 js_btn2" href="javascript:;" title="收藏"><img src="images/14.png" alt="收藏"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 背景 -->
+        <div class="bg_div"></div>
+        <!-- 举报弹框 -->
+        <div class="fixed_div report_box">
+            <div class="tab_div">
+                <h2>举报</h2>
+                <a class="btn1 js_btn7" href="javascript:;"><span>广告</span></a>
+                <a class="btn1 js_btn8" href="javascript:;"><span>重要内容/侵犯著作权</span></a>
+                <a class="btn1 js_btn9" href="javascript:;"><span>违法内容</span></a>
+                <a class="btn1 js_btn10" href="javascript:;"><span>非美甲图片</span></a>
+                <a class="btn1 js_btn11" href="javascript:;"><span>其他</span></a>
+                <a class="btn1 js_btn12 txt_c" href="javascript:;"><span>取消</span></a>
+            </div>
+            <div class="tab_div">
+                <h2>举报
+                    <a class="btn2 btn_type6 js_btn13" href="javascript:;"><span>确定</span></a>
+                </h2>
+                <!-- 补充说明 -->
+                <div class="add_txt_div">
+                    <input class="add_txt" type="text" placeholder="补充说明"/>
+                    <span>50</span>
+                </div>
+                <a class="btn1 js_btn14 txt_c" href="javascript:;"><span>取消</span></a>
+            </div>
+        </div>
+        <!-- 分享弹框 -->
+        <div class="fixed_div share_box">
+            <h2>分享</h2>
+            <a class="btn1 js_btn3" href="javascript:;"><img src="images/19.png" alt="icon"><span>朋友圈</span></a>
+            <a class="btn1 js_btn4" href="javascript:;"><img src="images/20.png" alt="icon"><span>QQ空间</span></a>
+            <a class="btn1 js_btn5" href="javascript:;"><img src="images/21.png" alt="icon"><span>新浪微博</span></a>
+        </div>
+        <!-- 浮层 -->
+        <div id="fix_box">
+            <!-- 占位 -->
+            <div id="placeholder_div"></div>
+            <!-- 背景 -->
+            <div id="bg_div"></div>
+            <!-- 提示 -->
+            <div id="tip_txt">我勒个去啊啊</div>
+        </div>
+        <script type="text/javascript">
+            //调整布局
+            $(function(){rs();});
+                $(window).resize(function(){rs();});
+            var rs=function(){
+                var dw=document.documentElement.clientWidth;
+                var dh=document.documentElement.clientHeight;
+                $("body").css({"font-size":1*dw/360+"em"});
+            }
+            $(function(){
+                // 举报弹框
+                $(".js_btn6").on("touchend",function(){
+                    $(".report_box").fadeIn();
+                    $(".tab_div").hide();
+                    $(".tab_div").eq(0).fadeIn();
+                    $(".bg_div").fadeIn();
+                });                // 分享弹框
+                $(".js_btn1").on("touchend",function(){
+                    $(".share_box").fadeIn();
+                    $(".bg_div").fadeIn();
+                });
+                // 分享到朋友圈
+                $(".js_btn3").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 分享到QQ空间
+                $(".js_btn4").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 分享到新浪微博
+                $(".js_btn5").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 广告
+                $(".js_btn7").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 重要内容/侵犯著作权
+                $(".js_btn8").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 违法内容
+                $(".js_btn9").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 非美甲图片
+                $(".js_btn10").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 其他
+                $(".js_btn11").on("touchend",function(){
+                    $(this).parent().hide();
+                    $(".tab_div").eq(1).show();
+                });
+                // 取消
+                $(".js_btn12").on("touchend",function(){
+                    $(this).parent().fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 确认其他
+                $(".js_btn13").on("touchend",function(){
+                    $(".report_box").fadeOut();
+                    $(".bg_div").fadeOut();
+                });
+                // 取消其他
+                $(".js_btn14").on("touchend",function(){
+                    $(this).parent().hide();
+                    $(".tab_div").eq(0).show();
+                });
+                // 收藏
+                $(".js_btn2").on("touchend",function(){
+                    if(!$(this).hasClass("js_now")){
+                        $(this).addClass("js_now");
+                        to_prompt.toPrompt("收藏成功");
+                        to_prompt.getEle();
+                    }else{
+                        $(this).removeClass("js_now");
+                        to_prompt.toPrompt("取消收藏");
+                        to_prompt.getEle();
+                    }
+                });
+            });
+// 浮框提示
+                var to_prompt={
+                    // 外框id
+                    box_obj: document.getElementById("fix_box"),
+                    // 占位框id
+                    place_obj: document.getElementById("placeholder_div"),
+                    // 文本框id
+                    txt_obj: document.getElementById("tip_txt"),
+                    // 居中计算
+                    toCenter:function(parent_ele,obj){
+                        var fw=parent_ele==document?document.documentElement.clientWidth:parent_ele.offsetWidth;
+                        var fh=parent_ele==document?document.documentElement.clientHeight:parent_ele.offsetHeight;
+                        var ow=obj.offsetWidth;
+                        var oh=obj.offsetHeight;
+                        obj.style.left=(fw-ow)/2+"px";
+                        obj.style.top=(fh-oh)/2+"px";
+                    },
+                    getEle:function(){
+                        this.place_obj.style.height=this.txt_obj.offsetHeight+"px";
+                        this.toCenter(document,this.box_obj);
+                        this.toCenter(this.box_obj,this.txt_obj);
+                    },
+                    toPrompt:function(txt){
+                        var a=this.box_obj;
+                        this.txt_obj.innerHTML=txt;
+                        a.style.display="inline-block";
+                        setTimeout(function(){
+                            a.style.display="none";
+                        },1000);
+                    }
+                }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+

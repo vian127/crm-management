@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>迈世旅游</title>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/member_center.css" />
+        <script src="js/jquery-2.1.4.min.js" ></script>
+        <script src="js/frame.js" ></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- 会员中心首页 -->
+            <div class="page page1 bg_color4" data-num="1">
+                <h1 class="tit_h1">会员中心</h1>
+                <div class="member_div">
+                    <!-- 推荐尺寸 180*180-->
+                    <img src="images/1.png" alt="头像"/>
+                    <span>死啦死啦</span>
+                    <a id="js_bd" class="btn2 btn_type1 bg_color2" href="javascript:;" title="绑定已有迈世账号">绑定已有账号</a>
+                    <a id="js_zc" class="btn2 btn_type1 bg_color3" href="javascript:;" title="注册新会员">注册新会员</a>
+                </div>
+            </div>
+            <!-- 绑定已有账号 -->
+            <div class="page page2" data-num="2">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    绑定已有账号
+                </h1>
+                <div class="input_div">
+                    <label class="txt_lab">账号:</label><input class="input_area" type="text"/><br/>
+                    <label class="txt_lab">密码:</label><input class="input_area" type="password"/><br/>
+                    <label class="txt_lab">验证码:</label><input class="input_area yzm" type="text"/><a class="btn3 get_yzm" id="get_yzm" href="javascript:;" title="点击刷新验证码">1554</a>
+                </div>
+                <a id="js_bd_now" class="btn2 btn_type2 bg_color2" href="javascript:;" title="绑定">绑定</a>
+            </div>
+            <!-- 注册新账号 -->
+            <div class="page page3" data-num="3">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn back_btn1" href="javascript:;" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    注册新账号
+                </h1>
+                <div class="input_div">
+                    <label class="txt_lab">手机号:</label><input class="input_area" type="text" maxlength="11" pattern="[0-9]*"/><br/>
+                    <label class="txt_lab">验证码:</label><input class="input_area yzm" type="text"/><a class="btn1 checkbut bg_color3" id="checkbut" href="javascript:;" title="获取验证码">获取验证码</a>
+                </div>
+                <a id="js_zc_now" class="btn2 btn_type2 bg_color2" href="javascript:;" title="注册">注册</a>
+            </div>
+            <!-- 会员中心 -->
+            <div class="page page4" data-num="4">
+                <h1 class="tit_h1">会员中心</h1>
+                <img class="head_pic" src="images/1.png" alt="头像"/>
+                <ul class="member_info">
+                    <li class="bg_color6 w_color3" style="boder-top: none">基础资料</li>
+                    <li>昵称:<span>死啦死啦</span></li>
+                    <li>性别:<span>男</span></li>
+                    <li>地区:<span>阿拉斯加</span></li>
+                    <li class="bg_color6 w_color3">会员特权</li>
+                    <li>手机号:<span class="js_number">13915886666</span><a class="btn1 edit_num" href="javascript:;" title="修改手机号"></a></li>
+                    <li>常用联系人:<a class="btn1 contact_btn" href="javascript:;" title="查看联系人"></a></li>
+                </ul>
+            </div>
+            <!-- 常用联系人 -->
+            <div class="page page5" data-num="5">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    常用联系人
+                </h1>
+                <ul class="contact_list">
+                    <li>
+                        <span class="l_spn">姓名:</span><span class="r_spn">我勒个去</span>
+                        <span class="l_spn">联系电话:</span><span class="r_spn">15148455262</span>
+                        <span class="l_spn">电子邮箱:</span><span class="r_spn">8545515145@qq.com</span>
+                        <span class="l_spn">联系地址:</span><span class="r_spn">上海市长宁区武定路1399号</span>
+                    </li>
+                    <li>
+                        <span class="l_spn">姓名:</span><span class="r_spn">我勒个去</span>
+                        <span class="l_spn">联系电话:</span><span class="r_spn">15148455262</span>
+                        <span class="l_spn">电子邮箱:</span><span class="r_spn">8545515145@qq.com</span>
+                        <span class="l_spn">联系地址:</span><span class="r_spn">上海市长宁区武定路1399号</span>
+                    </li>
+                </ul>  
+                <!-- 新增联系人 -->
+                <a id="add_contact" class="btn4 btn_type3 add_contact" href="javascript:;" title="新增联系人"> + 新增联系人</a>
+            </div>
+            <!-- 修改手机号 -->
+            <div class="page page6" data-num="6">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn back_btn2" href="javascript:;" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    修改手机号
+                </h1>
+                <div class="input_div">
+                    <label class="txt_lab">手机号:</label><input class="input_area" type="text" maxlength="11" pattern="[0-9]*"/><br/>
+                    <label class="txt_lab">验证码:</label><input class="input_area yzm" type="text"/><a class="btn1 checkbut bg_color3" id="checkbut1" href="javascript:;" title="获取验证码">获取验证码</a>
+                </div>
+                <a id="js_save_num" class="btn2 btn_type2 bg_color2" href="javascript:;" title="保存">保存</a>
+            </div>
+            <!-- 新增联系人 -->
+            <div class="page page7" data-num="7">
+                <h1 class="tit_h1">
+                    <a class="btn1 back_btn" href="javascript:;" title="返回"><img src="images/2.png" alt="返回"/></a>
+                    新增联系人
+                </h1>
+                <div class="input_div1">
+                    <label class="txt_lab1">姓名:</label><input class="input_area1" type="text"/>
+                    <label class="txt_lab1">联系电话:</label><input class="input_area1" type="text" maxlength="11" pattern="[0-9]*"/>
+                    <label class="txt_lab1">电子邮箱:</label><input class="input_area1" type="text"/>
+                    <label class="txt_lab1" style="vertical-align:top">联系地址:</label><textarea class="input_area1" rows="5" placeholder="若无需要，可不填写"></textarea>
+                </div>
+                <a id="js_add_btn" class="btn2 btn_type2 bg_color2" href="javascript:;" title="保存">保存</a>
+            </div>
+        </div>
+        <!-- 浮层 -->
+        <div id="fix_box">
+            <!-- 占位 -->
+            <div id="placeholder_div"></div>
+            <!-- 背景 -->
+            <div id="bg_div"></div>
+            <!-- 提示 -->
+            <div id="tip_txt">我勒个去啊啊</div>
+        </div>
+        <script type="text/javascript" src="js/member_center.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+

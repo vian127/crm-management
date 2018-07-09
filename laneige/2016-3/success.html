@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="lut"/>
+        <meta name="keywords" content="keywords"/>
+        <meta name="description" content="description"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>悦诗风吟雪耳霜</title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container" class="bg bg1">
+            <!-- 滚动框 -->
+            <div id="scroll">
+                <!-- 页面 -->
+                <div class="content">
+                    <!-- 表单页 -->
+                    <div class="page4">
+                        <h3>精炼自雪耳胶质的<br/>
+                            初肌修护原动力</h3>
+                        <div class="prod_div">
+                            <span>
+                                悦诗风吟<br/>
+                                雪耳晶透新妍沁润面霜
+                            </span>
+                            <a class="btn2 js_detail" href="javascript:;" title="产品详情"><img src="images/prod1.jpg" alt="产品图片"></a><br/>
+                            <div class="p4_div1">
+                                <img class="p2_pic2 animate2" src="images/icon1.png" alt="手指">
+                            </div>
+                            <p>蕴含雪耳修护精华，帮助修护肌肤，质地如同啫喱般清爽，缔造水嫩幼滑肌肤的晶透新妍沁润面霜。</p>
+                            <!-- 遮罩层产品详情 -->
+                            <div class="prod_detail hide">
+                                <div class="detail_div">
+                                    <h3>悦诗风吟<br/>
+                                        雪耳晶透新妍系列
+                                    </h3>
+                                    <span>蕴含雪耳修护精华<br/>
+                                        帮助修护肌肤<br/>
+                                        缔造水嫩幼滑肌肤
+                                    </span>
+                                    <img src="images/prod.png" alt="产品图片">
+                                    
+                                    <p>
+                                        雪耳晶透新妍密集修护面贴膜<span>22ml*8</span> ￥100<br/>
+                                        雪耳晶透新妍沁润面霜<span>60ml</span> ￥260<br/>
+                                        雪耳晶透新妍沁肤凝露<span>200ml</span> ￥180<br/>
+                                        雪耳晶透新妍夜间修护面膜<span>80ml</span> ￥280
+                                    </p>
+                                </div>
+                                <!-- bg -->
+                                <div class="bg_div"></div>
+                            </div>
+                        </div>
+                        <div class="btn_div">
+                            <a class="btn1 btn_type2" href="index.html" title="返回首页">返回首页</a>
+                            <a class="btn1 btn_type2" href="http://www.innisfree.cn/Main.do" title="立即购买">立即购买</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- 提示信息 -->
+                <div id="atten_box">
+                    <p class="p1">
+                        <span class="type3"></span>
+                    </p>
+                    <p class="p2"><a class="btn1" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+                    <p class="p3">对不起，<br> 本次活动已经结束了，<br>请继续关注悦诗风吟的其他活动。</p>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript">
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: window.location.href,
+                // 分享配置
+                init_arr:{},
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    // if(dw>limit){
+                    //     $("#container").css({"left":(dw-limit)/2+"px"});
+                    // };
+                    myScroll.refresh();
+                },
+                // ajax 请求地址
+                ajax_link: ["deal_info","is_set_info"],
+                // 提交的数据
+                re_arr:{
+                    "name":"",
+                    "mobile":"",
+                }
+            }
+            var myScroll = new IScroll('#container',{ 
+                    mouseWheel: true,
+                    hideScrollbar: true,
+                    click: true
+                }
+            );
+            $(function(){
+                $m.rs();
+                // 产看产品系列详情
+                $(".js_detail").on("click",function(){
+                    $(".prod_detail").fadeIn(150);
+                    $(".bg_div").fadeIn(200);
+                });
+                // 关闭浮层
+                $(".prod_detail").on("click",function(){
+                    $(this).fadeOut(150);
+                    $(".bg_div").fadeOut(200);
+                });
+                $(window).on("resize",function(){$m.rs()});
+            });
+        </script>
+    </body>
+   
+</html>

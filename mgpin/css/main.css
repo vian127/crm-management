@@ -1,0 +1,491 @@
+/*
+#author lut
+#setTime 2016-03-24
+#purpose 简化类似开发，减少开发时间
+*/
+@charset "utf-8";
+*{margin: 0;padding: 0;word-break: break-all;}
+html,body{height: 100%;overflow: hidden;}
+body{font-family: "微软雅黑";background-color: #fff;color: #626262}
+img{width:100%;border:none;margin: 0;padding: 0}
+a{text-decoration: none;}
+li{list-style: none;}
+p{line-height: 1.2em;}
+.input_area{-webkit-appearance: none !important;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;border-style: none;font-size: 0.8em;padding: 0.4em 0 0.4em 0.5em;margin-top: 0.8em;border-radius: 0em;border: 1px solid #aaa;width: 100%;outline: none;vertical-align: middle;}
+.select_area{-webkit-appearance: none !important;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;border-style: none;font-size: 0.8em;padding: 0.4em 0 0.4em 0.5em;margin-top: 0.8em;border-radius: 0em;border: 1px solid #aaa;width: 100%;outline: none;vertical-align: middle;}
+#container{
+	max-width: 720px;
+	height: 100%;
+	margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+.page{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.scroll{
+    min-height: 100%;
+}
+.header{
+    padding-top: 1em;
+}
+.tit{
+    position: relative;
+    text-align: center;
+    font-weight: normal;
+}
+.footer{
+    text-align: center;
+}
+/*page1*/
+.page1{
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+.page1 .tit{
+    margin-top: 0.2em;
+    color: #b42a49;
+}
+.page1 .tit>a{
+    opacity: 0;
+}
+.page1 .tit>img{
+    width: 58%;
+}
+.page1 .tit>p{
+    font-size: 0.6em;
+    margin-bottom: 1em;
+}
+.page1 .tit>span{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 2.8em;
+    height: 2.8em;
+    line-height: 2.8em;
+    border-radius: 50%;
+    border: 1px solid #b42a49;
+    font-weight: bold;
+}
+.p1_btn_div{
+    width: 60%;
+    margin: 0.2em auto 0em;
+    z-index: 10;
+}
+.p1_btn_div>a{
+    font-size: 0.6em;
+    padding: 0.5em;
+    text-decoration: underline;
+}
+.p1_div1{
+    position: relative;
+    text-align: center;
+}
+.p1_div1>img{
+    width: 56%;
+}
+.btn_type1{
+    display: inline-block;
+    position: absolute;
+    left: -1.5em;
+    right: 0;
+    top: 0em;
+    bottom: 0;
+    margin: auto;
+    width: 4.5em;
+    height: 4.5em;
+}
+.btn_type1>span{
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 1.1em;
+    left: 0;
+    top: 1em;
+    font-weight: bold;
+    color: #b42a49;
+    z-index: 10;
+}
+.p1_div2{
+    margin-top: -0.2em;
+    padding-left: 18%;
+}
+.p1_div2>p{
+    font-size: 0.7em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+.time_list{
+    text-align: left;
+}
+.time_list>li{
+    display: inline-block;
+    margin-right: 0.6em;
+}
+.time_list>li>div{
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.3em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0px 0px 1px #aaa inset;
+}
+.time_list>li>div:before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    /*height: 1px;*/
+    border-top: 1px solid #ddd;
+}
+.time_list>li>div:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    /*height: 1px;*/
+    border-bottom: 1px solid #ddd;
+}
+.time_list>li>div>img{
+    width: 1.6em;
+    margin-top: 0.5em;
+}
+.page1 .footer{
+    -webkit-box-sizing:border-box;-moz-box-sizing:border-box;
+    width: 78%;
+    padding: 0.5em 0em 1.5em 2em;
+    margin: auto;
+    margin-top: 1em;
+    background-image: url(../images/bg1.png);
+    background-position: center;
+    background-size: 100%;
+}
+.page1 .footer>h3{
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #b42a49;
+    font-size: 1em;
+    color: #b42a49;
+}
+.page1 .footer>ul{
+    text-align: left;
+}
+.page1 .footer>ul>li{
+    font-size: 0.7em;
+    line-height: 2em;
+}
+.spn1{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: 0.3em;
+    background-color: #b42a49;
+    vertical-align: middle;
+}
+/*page2*/
+.page2{
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 2em;
+    top: 14%;
+    right: 2em;
+    bottom: 2em;
+    padding: 0em 2em;
+    margin: auto;
+    background-color: #fff;
+    z-index: 100;
+    border-radius: 0.5em;
+    display: none;
+}
+.page2 .header{
+    padding-top: 0;
+}
+.page2 .tit{
+    position: relative;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+}
+.page2>a{
+    position: absolute;
+    right: 0.5em;
+    top: -1em;
+    padding: 0.5em;
+    z-index: 10;
+}
+.page2>a>img{
+    width: 1.4em;
+    margin-top: 1.35em;
+}
+.rule_div{
+    padding-bottom: 1em;
+}
+.rule_div>p{
+    font-size: 0.6em;
+    line-height: 1.7em;
+}
+.rule_div ul{
+    font-size: 0.6em;
+    line-height: 1.7em;
+}
+.rule_div label{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+/*page3*/
+.page3{
+    background-image: url(../images/bg2.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 100%;
+    color: #fff;
+}
+.page3 .header{
+    
+}
+.page3 .content{
+    text-align: center;
+}
+.page3 .content>p{
+    width: 70%;
+    margin: auto;
+    font-size: 0.9em;
+    line-height: 1.8em;
+}
+.page3 .footer{
+    margin-top: 40%;
+}
+.page3 .footer>a{
+    display: inline-block;
+    font-size: 0.9em;
+    padding: 0.55em 1em;
+    border-radius: 0.5em;
+    box-shadow: 0.2em 0.2em 0.3em #918c8e;
+    background-color: #df0f4b;
+}
+/*page4*/
+.page4{
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 100%;
+}
+.page4 .header{
+    padding: 0
+}
+.coupon_list{
+    padding: 0 1em;
+    padding-top: 1.5em;
+    color: #fff;
+}
+.coupon_list>li{
+    font-size: 0.8em;
+    padding: 1em 0.5em;
+    margin: 2.5em 0;
+    line-height: 1.6em;
+    border: 0.5em solid #fff;
+    background: #e95562;
+    box-shadow: 0.5em 0.5em 1em #918c8e;
+}
+/*蒙版*/
+.bg_div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    display: none;
+}
+/*提示框*/
+#atten_box{
+	-webkit-box-sizing:border-box;-moz-box-sizing:border-box;
+	position: fixed;
+	left: 0;
+    top: 0;
+	height: 100%;
+    max-width: 720px;
+	width: 100%;
+	text-align: center;
+	z-index: 1000;
+    /*display: none;*/
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 100%;
+}
+#atten_box>.top_div{
+    height: 50%;
+    margin-bottom: -1.5em;
+}
+.p2{display: none;}
+.p3{
+	display: none;
+    margin-top: -4em;
+    line-height: 2em;
+}
+/*背景遮罩*/
+#bg_div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    max-width: 720px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    display: none;
+}
+.n_b{border: none}
+/*按钮字体*/
+.btn1,.btn1:visited,.btn1:hover,.btn1:active{color: #fff;}
+.btn2,.btn2:visited,.btn2:hover,.btn2:active{color: #626262;}
+.btn3,.btn3:visited,.btn3:hover,.btn3:active{color: #b42a49;}
+.color1{color: #fff;}
+.color2{color: #323232;}
+.color3{color: #b42a49;}
+.color4{color: #e60a4b;}
+.b_color1{background-color: #f5f5f5}
+
+.font08{font-size: 0.8em;}
+.font12{font-size: 1.2em;}
+.font15{font-size: 1.5em;}
+
+.fw_b{font-weight: bold;}
+/*浮动类型*/
+.f_l{float: left;}
+.f_r{float: right;}
+.clear:after{display: block;content: "";visibility: hidden;clear: both;}
+.hide{display: none;}
+
+
+
+/*css3动画*/
+.animate1{
+    -webkit-animation: cssMove1 1.5s linear infinite;
+    -moz-animation: cssMove1 1.5s linear infinite;
+    -o-animation: cssMove1 1.5s linear infinite;
+}
+.animate2{
+    -webkit-animation: cssMove2 1.5s linear infinite;
+    -moz-animation: cssMove2 1.5s linear infinite;
+    -o-animation: cssMove2 1.5s linear infinite;
+}
+
+.type2{
+	display: inline-block;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    box-shadow: 0 -30px 0px #02CFFF,-21px -21px 1px #3ACDEF,-30px 0px 1px #62CAE2,-21px 21px 1px #71D6ED,0px 30px 2px #8CDCEF,21px 21px 2px #A5E1EF,30px 0px 3px #BCE4ED,21px -21px 4px #C0E7F0;
+    animation: loading 2s steps(8, start) infinite;
+    -webkit-animation: loading 2s steps(8, start) infinite;
+    -ms-animation: loading 2s steps(8, start) infinite;
+    -moz-animation: loading 2s steps(8, start) infinite;
+    -o-animation: loading 2s steps(8, start) infinite;
+}
+@keyframes loading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-ms-keyframes loading{
+    0%{
+        -ms-transform: rotate(0deg);
+    }
+    100%{
+        -ms-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes loading{
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes loading{
+    0%{
+        -moz-transform: rotate(0deg);
+    }
+    100%{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-o-keyframes loading{
+    0%{
+        -o-transform: rotate(0deg);
+    }
+    100%{
+        -o-transform: rotate(360deg);
+    }
+}
+.type3{
+	display: inline-block;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    box-shadow: 0 -30px 0px 3px #4278b9,-21px -21px 1px 2px #4278b9,-30px 0px 1px 1.5px #4278b9,-21px 21px 1px 1.2px #4278b9,0px 30px 2px 1px #4278b9,21px 21px 2px 1px #4278b9,30px 0px 3px #4278b9,21px -21px 4px #4278b9;
+    animation: loading 1s steps(8, start) infinite;
+    -ms-animation: loading 1s steps(8, start) infinite;
+    -webkit-animation: loading 1s steps(8, start) infinite;
+    -moz-animation: loading 1s steps(8, start) infinite;
+    -o-animation: loading 1s steps(8, start) infinite;
+}
+@-webkit-keyframes cssMove1{
+    0%{
+        -webkit-transform: scale(1) translateY(0);
+    }
+    50%{
+        -webkit-transform: scale(1.2) translateY(0.4em);
+    }
+    100%{
+        -webkit-transform: scale(1) translateY(0);
+    }
+}
+@-moz-keyframes cssMove1{
+    0%{
+        -moz-transform: scale(1) translateY(0);
+    }
+    50%{
+        -moz-transform: scale(1.2) translateY(0.4em);
+    }
+    100%{
+        -moz-transform: scale(1) translateY(0);
+    }
+}
+@-o-keyframes cssMove1{
+    0%{
+        -o-transform: scale(1) translateY(0);
+    }
+    50%{
+        -o-transform: scale(1.2) translateY(0.4em);
+    }
+    100%{
+        -o-transform: scale(1) translateY(0);
+    }
+}

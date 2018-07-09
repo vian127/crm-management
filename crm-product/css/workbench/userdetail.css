@@ -1,0 +1,123 @@
+#page-wrapper {
+    min-width: 1080px;
+    white-space: nowrap;
+}
+.header-title {
+    padding-top: 0px;
+    height: 30px;
+    border-bottom: 1px solid #797979;
+}
+
+
+.content {
+    min-width: 980px;
+}
+
+.row {
+    margin-left: -30px;
+}
+
+label {
+    padding-right: 10px;
+    font-weight: normal;
+}
+
+.group1 .account {
+    width: 66px;
+}
+
+.group1 input {
+    width: 80%;
+}
+
+.group2 input {
+    width: 85%;
+}
+
+.group3 select {
+    width: 25%;
+    margin-left: 5px;
+}
+
+.group3 input {
+    width: 80%;
+}
+
+.addr {
+    margin-right: -40px;
+}
+
+.trade-info {
+    padding: 10px 0;
+    
+}
+.group4 .supply {
+    width:70%;
+}
+.group4 .genre {
+    width: 80%;
+}
+.group4 .trade {
+    width: 70%;
+}
+.group5 .sex {
+    width: 80%;
+}
+.group5 .format {
+    width: 90%;
+}
+.group5 .major {
+    width: 80%;
+}
+.group6 .season {
+    width: 70%;
+}
+.group6 .texture {
+    width: 90%;
+}
+.group6 .craft {
+    width: 80%;
+}
+.group7 .stage-ser {
+    width: 60%;
+}
+.group7 .condition {
+    width: 60%;
+}
+.group7 .invoice {
+    width: 60%;
+}
+.group7 input {
+    width: 60%;
+}
+.other-info input {
+    width: 60%;
+}
+.other-info {
+    margin-bottom: 10px;
+}
+.linkman {
+    overflow: auto;
+}
+.linkman th {
+    text-align: center;
+    padding: 0 10px;
+}
+.linkman td {
+    padding: 0 10px;
+}
+.basic-sure {
+    width: 80px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 14px;  
+}
+.added {
+    color: #0033ff;
+    padding-left: 30px;
+}
+table {
+    font-size: 14px;
+}

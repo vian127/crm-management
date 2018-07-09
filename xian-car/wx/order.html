@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="lut"/>
+        <meta name="keywords" content="城际快客,出行,约车"/>
+        <meta name="description" content="线上拼车平台"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>weui测试</title>
+        <link rel="stylesheet" type="text/css" href="css/weui.min.css">
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="css/order.css">
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container">
+            <!-- 系统派单中 -->
+            <div class="page page1">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back_page" href="javascript:;" title="返回"><img src="images/icon10.png" alt="返回"></a>
+                        <span>系统派单中</span>
+                        <a class="btn2 r_btn" href="javascript:;" title="取消订单" data-return="page4">取消订单</a>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box">
+                        <div class="order_box">
+                            <h3 class="color6 txt_c">订单详情</h3>
+                            <ul>
+                                <li><img src="images/icon12.png" alt="icon"><span>今天</span><span>22:00</span></li>
+                                <li><img src="images/icon12.png" alt="icon"><span>神木</span></li>
+                                <li><img src="images/icon13.png" alt="icon"><span>大柳塔</span></li>
+                                <li><img src="images/icon15.png" alt="icon"><span>需要捎一件行李</span></li>
+                            </ul>
+                        </div>
+                        <h3 class="txt_c">为您服务的司机师傅</h3>
+                        <div class="order_box js_drver">
+                            <h3 class="n_b txt_c"><img class="head_pic" src="images/1.jpg" alt="头像"/></h3>
+                            <div class="header_info">
+                                <span>陕A8888</span><span class="color4">王师傅</span><br/>
+                                
+                                <div class="clear">
+                                    <ul class="star_list">
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                    </ul>
+                                    <a class="btn2 tel_btn f_r" href="javascript:;" title="电话"><img src="images/icon14.png" alt="电话"></a>
+                                </div>
+                                <!-- 服务信息 -->
+                                <div class="driver_rank">
+                                    <label>服务次数：</label><span>200</span>
+                                    <div class="f_r"><label>司机排名：</label><span>10</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="txt_c"><a href="javascript:;" class="btn1 btn_type1 weui_btn_my1 b_color3 js_called_btn" title="立即叫车">立即叫车</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 车辆详情 -->
+            <div class="page page2">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back" href="javascript:;" title="返回" data-return="page1"><img src="images/icon10.png" alt="返回"></a>
+                        <span>车辆详情</span>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box">
+                        <div class="header_info">
+                            <img class="head_pic" src="images/1.jpg" alt="头像"/>
+                            <div>
+                                <span>陕A8888</span><span class="color4">王师傅</span><br/>
+                                <div class="clear">
+                                    <ul class="star_list">
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                    </ul>
+                                    <a class="btn2 tel_btn f_r" href="javascript:;" title="电话"><img src="images/icon14.png" alt="电话"></a>
+                                </div>
+                                <!-- 服务信息 -->
+                                <div class="driver_rank">
+                                    <label>服务次数：</label><span>200</span>
+                                    <div class="f_r"><label>司机排名：</label><span>10</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="evaluate_box">
+                            <h3>评价标签：</h3>
+                            <ul>
+                                <li>车技好(3)</li>
+                                <li>空气新鲜(3)</li>
+                                <li>干净卫生(3)</li>
+                                <li>贴心(3)</li>
+                            </ul>   
+                        </div>
+                        <ul class="line_info">
+                            <li><label>始点：</label><span>西安市未央区凤城五路</span></li>
+                            <li><label>终点：</label><span>宝鸡市区</span></li>
+                            <li><label>余座：</label><span><span class="color4">3</span>个</span></li>
+                            <li><label>距离：</label><span>1.03km</span></li>
+                        </ul>
+                        <div class="txt_c"><a href="javascript:;" class="btn1 btn_type1 weui_btn_my1 b_color3" title="立即叫车">立即叫车</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 车辆支付 -->
+            <div class="page page3">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back" href="javascript:;" title="返回" data-return="page1"><img src="images/icon10.png" alt="返回"></a>
+                        <span>车辆支付</span>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box">
+                        <div class="header_info">
+                            <img class="head_pic" src="images/1.jpg" alt="头像"/>
+                            <div>
+                                <span style="margin-right: 0.5em">陕A8888</span><span class="color4">王师傅</span><br/>
+                                <div class="clear">
+                                    <ul class="star_list">
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                        <li><img src="images/icon11.png" alt="星星"></li>
+                                    </ul>
+                                    <a class="btn2 tel_btn f_r" href="javascript:;" title="电话"><img src="images/icon14.png" alt="电话"></a>
+                                </div>
+                                <!-- 服务信息 -->
+                                <div class="driver_rank">
+                                    <label>服务次数：</label><span>200</span>
+                                    <div class="f_r"><label>司机排名：</label><span>10</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><label class="f_l">&nbsp;</label><span class="color6">订单详情</span><label class="f_r">&nbsp;</label></h3>
+                        <ul class="detail_list">
+                            <li class="clear"><img src="images/icon12.png" alt="icon"><span>今天</span><span>22:00</span><div class="f_r">乘车人数<span class="color5">1</span>人</div></li>
+                            <li><img src="images/icon12.png" alt="icon"><span>神木</span></li>
+                            <li><img src="images/icon13.png" alt="icon"><span>大柳塔</span></li>
+                            <li><img src="images/icon15.png" alt="icon"><span>需要捎一件行李</span></li>
+                        </ul>
+                        <div class="txt_c"><span>预计司机</span><span>15min</span><span>后到达</span></div>
+                        <h3><label class="f_l">&nbsp;</label><span class="color6">车费支付</span><label class="f_r">&nbsp;</label></h3>
+                        <div class="pay_box">
+                            <a class="btn2" href="javascript:;" title="优惠券">
+                                <label>优惠券</label>
+                                已使用<span class="color6 font12 v_base">5</span>元
+                            </a>
+                            <div class="txt_c">
+                                还需支付 <span class="font18 color6 v_base">25</span> 元
+                            </div>
+                            <ul class="pay_type_list js_pay_list">
+                                <li>
+                                    <a class="btn2" href="javascript:;" title="微信支付">
+                                        <img src="images/icon33.png" alt="微信"><br/>
+                                        微信<br/>
+                                        <span class="now_choice_spn">&nbsp;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn2" href="javascript:;" title="支付宝支付">
+                                        <img src="images/icon34.png" alt="支付宝"><br/>
+                                        支付宝<br/>
+                                        <span>&nbsp;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn2" href="javascript:;" title="银联支付">
+                                        <img src="images/icon35.png" alt="银联"><br/>
+                                        银联<br/>
+                                        <span>&nbsp;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn2" href="javascript:;" title="余额支付">
+                                        <img src="images/icon36.png" alt="余额"><br/>
+                                        余额<br/>
+                                        <span>&nbsp;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="txt_r">
+                                <label class="color6 font08">提示：微信公众号只有微信余额支付</label>
+                            </div>
+                            <div class="btn_div"><a class="btn3 btn_type2 js_pay_btn" href="javascript:;" title="线下支付">线下支付</a><a class="btn1 btn_type3 js_pay_btn" href="javascript:;" title="确认支付">确认支付</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 提示信息 -->
+        <section id="atten_box" class="center_box">
+            <p class="p1">
+                <span class="type3"></span>
+            </p>
+            <p class="p2"><a class="btn1" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+            <p class="p3">对不起，<br> 本次活动已经结束了，<br>请继续关注悦诗风吟的其他活动。</p>
+        </section>
+        <section id="bg_div" class="center_box"></section>
+        <script src="http://api.map.baidu.com/api?v=2.0&ak=5ZmIO6bXbDtdllzdMZwfXmFm"></script>
+        <script src="js/pinyin.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/frame.js"></script>
+        <script type="text/javascript" src="js/order.js"></script>
+    </body>
+   
+</html>

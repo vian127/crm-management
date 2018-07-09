@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="lut"/>
+        <meta name="keywords" content="城际快客,出行,约车"/>
+        <meta name="description" content="线上拼车平台"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>weui测试</title>
+        <link rel="stylesheet" type="text/css" href="css/weui.min.css">
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="css/member_center.css">
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container">
+            <!-- 钱包余额 -->
+            <div class="page page5">
+                <div class="scroll">
+                    <!-- 标题 -->
+                    <h3 class="head_tit">
+                        <!-- 返回前页 -->
+                        <a class="btn1 return_btn js_back" href="member_center.html?page=4" title="返回" data-return="page4"><img src="images/icon10.png" alt="返回"></a>
+                        <span>钱包余额</span>
+                    </h3>
+                    <!-- 内容 -->
+                    <div class="content_box txt_c">
+                        <div class="circular_div bg_gradient1">
+                            <span>余额</span><br/>
+                            <span class="font15 color1">￥5200</span>
+                        </div>
+                        <a href="javascript:;" class="weui_btn weui_btn_my1 b_color3" title="充值">充值</a>
+                        <a href="javascript:;" class="weui_btn weui_btn_default" title="提现">提现</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 提示信息 -->
+        <section id="atten_box" class="center_box">
+            <p class="p1">
+                <span class="type3"></span>
+            </p>
+            <p class="p2"><a class="btn1" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+            <p class="p3">对不起，<br> 本次活动已经结束了，<br>请继续关注悦诗风吟的其他活动。</p>
+        </section>
+        <section id="bg_div" class="center_box"></section>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript">
+            // 滚动变量
+            var myScroll;
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: window.location.href,
+                // 图片地址前缀
+                img_url:"images/",
+                // 当前页面
+                active_scroll:1,
+                // 重新布局
+                rs: function(){
+                    var a=this;
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    if(dw>limit){
+                        $(".center_box").css({"left":(dw-limit)/2+"px"});
+                    };
+                    a.setHeight($(".circular_div"),1);
+                },
+                // ajax 请求地址
+                ajax_link: ["deal_info","is_set_info"],
+                // 居中显示
+                toCenter:function(obj,par){
+                    var dh=par.height();
+                    var oh=obj.outerHeight();
+                    obj.css({"margin-top": (dh-oh)/2-50+"px"});
+                },
+                // 设置宽高
+                setHeight:function(obj,k){
+                    var ow=obj.width();
+                    console.log(ow);
+                    var num=parseInt(ow*k);
+                    obj.height(num+"px");
+                },
+                // 初始化显示
+                showPage:function(func){
+                    $("#atten_box").fadeOut(200,function(){
+                        if(typeof func==="function" && func instanceof Function){
+                            func();
+                        }
+                    });
+                    $("#bg_div").fadeOut(400);
+                }
+            }
+            $(function(){
+                // 绑定滚动
+                myScroll=new IScroll('.page5',{mouseWheel: true,hideScrollbar: true,click: true,bounce:false});
+                $m.showPage(function(){
+                    var a=$(".page5");
+                    a.show();
+                    $m.rs();
+                });
+                $(window).on("resize",function(){$m.rs()});
+            });
+        </script>
+    </body>
+   
+</html>

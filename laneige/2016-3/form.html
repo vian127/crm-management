@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="lut"/>
+        <meta name="keywords" content="keywords"/>
+        <meta name="description" content="description"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>悦诗风吟雪耳霜</title>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+        <!-- 模拟屏幕 -->
+        <section id="container" class="bg bg1">
+            <!-- 滚动框 -->
+            <div id="scroll">
+                <!-- 页面 -->
+                <div class="content">
+                    <!-- 表单页 -->
+                    <div class="page3">
+                        <h3>请正确输入您的个人信息，参与抽奖活动</h3>
+                        <label>姓名</label><input class="input_area js_input js_name" type="text"><br>
+                        <label>电话</label><input class="input_area js_input js_mobile" type="text" maxlength="11" pattern="[0-9]*"><br>
+                        <label>地址</label><input class="input_area js_input js_pos" type="text">
+                        <ul class="rule_list">
+                            <li>
+                                <p>奖项设置</p>
+                                <p>悦诗风吟雪耳晶透新妍系列套装一份（共50份）</p>
+                            </li>
+                            <li>
+                                <p>活动细则：</p>
+                                <p>1、每人每天有一次参与抽奖的机会。</p>
+                                <p>2、参加活动的用户请填写真实有效的个人信息，信息不符中奖无效，同时用第三方软件刷票均无效。</p>
+                                <p>3、活动时间：3月2日-3月14日。</p>
+                                <p>4、“个人信息”此用户资料仅作为中奖凭证，不会透露给第三方。</p>
+                            </li>
+                            <li>
+                                <p>温馨提示：活动结束后的第一周内，中奖名单将在悦诗风吟官方微信【微信号：innisfreechina】公布，请及时关注。</p>
+                                <p>悦诗风吟品牌保留修订条款及细则之权利。</p>
+                            </li>
+                        </ul>
+                        <a class="btn1 btn_type1 js_save" href="javascript:;" title="确认">确&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+                    </div>
+                </div>
+                
+                <!-- 提示信息 -->
+                <div id="atten_box">
+                    <p class="p1">
+                        <span class="type3"></span>
+                    </p>
+                    <p class="p2"><a class="btn1" href="javascript:window.location.reload(true);" title="重新加载页面">加载失败，点击重试！</a></p>
+                    <p class="p3">对不起，<br> 本次活动已经结束了，<br>请继续关注悦诗风吟的其他活动。</p>
+                </div>
+                <!-- 浮层提示 -->
+                <div class="share_div">
+                    <div class="share_top"><img src="images/icon2.png" alt="点击右上角分享"></div>
+                    <h3>
+                        您的信息已提交成功<br/>
+                        现在邀请您的好友一起来体验<br/>
+                        悦诗风吟雪耳霜吧
+                    </h3>
+                </div>
+                <!-- 背景 -->
+                <div class="bg_div"></div>
+            </div>
+        </section>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/frame.js"></script>
+        <script type="text/javascript">
+            // 自定义方法
+            var $m={
+                // 分享链接
+                share_href: window.location.href,
+                // 分享配置
+                init_arr:{},
+                // 图片地址前缀
+                img_url:"images/",
+                // 重新布局
+                rs: function(){
+                    var limit=720;
+                    var dw=document.documentElement.clientWidth;
+                    var dh=document.documentElement.clientHeight;
+                    var fw=dw>limit?limit:dw;
+                    $("body").css({"font-size":1*fw/360+"em"});
+                    // if(dw>limit){
+                    //     $("#container").css({"left":(dw-limit)/2+"px"});
+                    // };
+                    myScroll.refresh();
+                },
+                // ajax 请求地址
+                ajax_link: ["deal_info","is_set_info"],
+                // 提交的数据
+                re_arr:{
+                    "name":"",
+                    "mobile":"",
+                }
+            }
+            var myScroll = new IScroll('#container',{ 
+                    mouseWheel: true,
+                    hideScrollbar: true,
+                    click: true
+                }
+            );
+            $(function(){
+                $m.rs();
+                m.setcss({"butbg":"#a4eaf4","butfcolor":"#626262"});
+                // 手机限制输入字母和汉字
+                $(".js_mobile").bind("input propertychange",function(event){
+                    var txt=$(this).val();
+                    var regx=/\D/g;
+                    $(this).val(txt.replace(regx,''));
+                    stopBubble(event);
+                });
+                // 提交个人信息
+                $(".js_save").on("click",function(){
+                    saveFunc($(this));
+                });
+                // 关闭浮层
+                $(".share_div").on("click",function(){
+                    $(".js_save").text("已 提 交");
+                    $(this).fadeOut(150);
+                    $(".bg_div").fadeOut(200);
+                });
+                $(document).on("click",function(event){
+                    $(".js_input").blur();
+                    stopBubble(event);
+                });
+                $(".js_input").on("click",function(event){
+                    $(this).focus();
+                    stopBubble(event);
+                });
+                $(window).on("resize",function(){$m.rs()});
+            });
+            // 提交函数
+            function saveFunc(obj){    
+                var _this=obj;
+                var txt1,txt2;
+                var regx=/1[1-9]+[0-9]{9}/;
+                txt1=$(".js_name").val()?$(".js_name").val():"";
+                txt2=$(".js_mobile").val()?$(".js_mobile").val():"";
+                txt3=$(".js_pos").val()?$(".js_pos").val():"";
+                if(txt1==""){
+                    msg("请填写姓名",500);
+                }else if(txt2==""){
+                    msg("请填写手机号",500);
+                }else if(txt2.length<11 || !regx.test(txt2)){
+                    msg("请填写正确手机号",500);
+                }else if(txt3==""){
+                    msg("请填写地址",500);
+                }else{
+                    // 可以提交
+                    _this.off("click");
+                    _this.text("提 交 中 ...");
+                    $m.re_arr["name"]=txt1;
+                    $m.re_arr["mobile"]=txt2;
+                    $m.re_arr["pos"]=txt3;
+                    console.log("提交的数据是："+$m.re_arr);
+                    $(".share_div").fadeIn(150);
+                    $(".bg_div").fadeIn(200);
+                    return false;
+                    // 请求开始
+                    $.ajax({
+                        type: "POST",
+                        url: "http://weapp.wemediacn.com/dabao/newyear/custom/save_api",
+                        dataType: "json",
+                        data: $m.re_arr,
+                        success: function(data){
+                            if(data["status"]==1){
+                                // 成功
+                                _this.text("已 提 交");
+                                window.location.replace("success.html");
+                            }else if(data["status"]==2){
+                                msg("您的参数不正确，请重试。","确定");
+                                _this.text("提    交");
+                                _this.on("click",function(){
+                                    toSub(_this);
+                                });
+                            }else if(data["status"]==3){
+                                // 已经兑换
+                                window.location.href="success.html?openid="+openid+"?number="+data["number"];
+                            }else if(data["status"]==5){
+                                // 已经兑换
+                                msg("验证码错误，请重新输入。","确定");
+                                _this.text("提    交");
+                                _this.on("click",function(){
+                                    toSub(_this);
+                                });
+                            }else{
+                                msg("您的链接地址不正确，请用官方链接打开。","确定",function(){
+                                    if(typeof WeixinJSBridge!=="undefined"){
+                                        WeixinJSBridge.call( 'closeWindow');
+                                    }else{
+                                        window.close();
+                                    }
+                                },true);
+                            }
+                            
+                        },
+                        error: function(XMLHttpRequest,textStatus,errorThrown){
+                            // 请求失败
+                            msg("网络似乎出现了问题，请重试。","确定");
+                            _this.text("提    交");
+                            _this.on("click",function(){
+                                toSub(_this);
+                            });
+                        }
+                    });
+
+                    
+                }
+                
+            }
+            // 阻止事件冒泡
+            function stopBubble(e){
+                if(e && e.stopPropagation){
+                    e.stopPropagation();
+                }
+                else{
+                    window.event.cancelBubble=true;
+                }
+                return false;
+            }
+        </script>
+    </body>
+   
+</html>
+
+ 

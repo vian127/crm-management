@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta author="lut000"/>
+	<meta name="robots" content="all"/>
+	<meta name="keywords" content="出行,物流,商城,劳务"/>
+	<meta name="description" content="山西置安为民汽车租凭"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<style type="text/css">
+		.s_head{
+			padding: 20px 0;
+			position: relative;
+		}
+		.s_head>a{
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			font-size: 16px;
+			z-index: 10;
+		}
+		.s_head>img{
+			width: 160px;
+		}
+		.form_box{
+			box-sizing:border-box;
+			-moz-box-sizing:border-box; /* Firefox */
+			-webkit-box-sizing:border-box; /* Safari */
+			padding: 50px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+		}
+		.register_area{
+			text-align: center;
+		}
+		.input_area{
+			font-size: 16px;
+			padding: 10px 5px;
+			width: 45%;
+			margin: 15px 0;
+			vertical-align: middle;
+		}
+		.register_area>label{
+			width: 10%;
+			font-size: 16px;
+			text-align: right;
+			margin-right: 20px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.register_area>p{
+			display: inline-block;
+			width: 46%;
+			color: #cc0000;
+			text-align: left;
+		}
+		.code{
+			width: 30%;
+		}
+		.register_area>.btn_type2{
+			padding: 11px 22px;
+			width: 80px;
+			margin-left: 15px;
+			vertical-align: middle;
+		}
+		.register_area>.btn_type3{
+			width: 40%;
+			padding: 12px 30px;
+			margin: 30px 0;
+			font-weight: bold;
+		}
+		.b_div{
+			display: inline-block;
+			width: 46.5%;
+		}
+		.s_foot{
+			padding: 50px 0;
+			text-align: center;
+		}
+		.s_foot .p2{
+			font-size: 12px;
+		}
+		.sign_area{
+			text-align: center;
+		}
+		.sign_area>input{
+			font-size: 16px;
+			padding: 15px 5px 15px 50px;
+			width: 45%;
+			margin: 15px 0;
+			background-image: url(images/icon7.png);
+			background-repeat: no-repeat;
+			background-position: 15px center;
+			background-size: 20px;
+			vertical-align: middle;
+			border-style: none;
+			border: 1px solid #999;
+		}
+		.sign_area>.btn_type3{
+			width: 45%;
+			padding: 15px 30px;
+			margin: 30px 0;
+			font-weight: bold;
+		}
+		.pass_div{
+			position: relative;
+			width: 52%;
+			margin: auto;
+		}
+		.pass_div>a{
+			position: absolute;
+			right: -7em;
+			top: 30px;
+		}
+		.pass_div>input{
+			font-size: 16px;
+			padding: 15px 5px 15px 50px;
+			width: 87%;
+			margin: 15px 0;
+			background-image: url(images/icon8.png);
+			background-repeat: no-repeat;
+			background-position: 15px center;
+			background-size: 20px;
+			border-style: none;
+			border: 1px solid #999;
+			vertical-align: middle;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body class="bg_color3">
+	<!-- 内容 -->
+	<div class="w1024">
+		<div class="s_head clear">
+			<img src="images/logo1.png" alt="logo">
+			<a class="btn3 f_r" href="index.html" title="返回首页">返回首页>></a>
+		</div>
+		<div class="form_box">
+			<!-- 注册 -->
+			<div class="register_area hide">
+				<label>手机号：</label><input class="input_area js_mobile js_input_area" type="text" maxlength="11"/><br/>
+				<label>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label><input class="input_area js_input_area" type="text"/><br/>
+				<label>密&nbsp;&nbsp;&nbsp;&nbsp;码：</label><input class="input_area js_input_area" type="password"/><br/>
+				<label>验证码：</label><input class="input_area code js_input_area" type="text"/><a class="btn2 btn_type2 js_get_code" href="javascript:;" title="获取验证码">获取验证码</a><br/>
+				<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><p>提示：点击注册表示您已经同意此服务协议！</p><br>
+				<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><a class="btn2 btn_type3 js_register_btn" href="javascript:;" title="马上注册">马上注册</a><br/>
+				<label>&nbsp;&nbsp;&nbsp;&nbsp;</label><div class="b_div"><span>已有账号，点击</span>
+				<a class="btn4 js_to_sign" href="javascript:;" title="登录">登录</a>
+				>></div>
+			</div>
+			<!-- 登录 -->
+			<div class="sign_area">
+				<input class="js_mobile js_input_area" type="text" placeholder="在此输入手机号" maxlength="11"/><br/>
+				<div class="pass_div">
+					<input class="js_input_area" type="password" placeholder="请输入密码"/><a class="btn4" href="javascript:;" title="忘记密码？">忘记密码？</a>
+				</div>
+				<a class="btn2 btn_type3 js_sign_btn" href="javascript:;" title="登录">登录</a><br/>
+				<a class="btn3 js_to_register" href="javascript:;" title="没有账号，免费注册">没有账号，免费注册 >></a>
+			</div>
+		</div>
+		<div class="s_foot">
+			<p class="p1">太原市城际出行网络科技有限公司</p>
+			<p class="p2">TAIYUANCHENGJICHUXINGWANGLUOKEJIYOUXIANGONGSI</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/msg-pc.js"></script>
+	<script type="text/javascript">
+		var $m={
+			// 居中
+			toCenter:function(obj,par){
+				var dw=par.width();
+				var dh=par.height();
+				var ow=obj.width();
+				var oh=obj.height();
+				obj.css({"left":(dw-ow)/2+"px"});
+			},
+			// 初始化
+			init:function(){
+				this.setModel();
+			},
+			// 计算高度
+			setModel:function(){
+				// 浏览器高度
+				var dh=document.documentElement.clientHeight || document.body.height;
+				// 头部高度
+				var th=$(".s_head").outerHeight();
+				// 底部高度
+				var bh=$(".s_foot").outerHeight();
+				$(".form_box").css({"min-height":(dh-th-bh)+"px"});
+			},
+			// 按比例设置元素高度
+			setHeight:function(obj,k,num){
+				// obj对象，k高度/宽，num预定义数值
+				var ow=obj.width();
+				console.log(ow)
+				var oh=parseInt(ow*k)?parseInt(ow*k):num?num:0;
+				obj.height(oh);
+			},
+			// 提示信息
+			atten_txt:["请填写手机号","请填写正确的手机号","请填写姓名","请设置登录密码","请填写验证码","验证码错误，请重试"],
+			// 后台获取信息
+			user_arr:{"name":"姓名","mobile":"手机","yzm":"验证码","password":"密码"},
+		}
+		//获得链接属性 
+		var link_obj=GetRequest();
+		var l_type=link_obj["type"]?link_obj["type"]:1;
+		$(function(){
+			$m.init();
+			if(l_type==2){
+				document.title="注册";
+				$(".register_area").show();
+				$(".sign_area").hide();
+			}
+			// 手机限制输入字母和汉字
+		    $(".js_mobile").bind("input propertychange",function(){
+		        var txt=$(this).val();
+		        var regx=/\D/g;
+		        $(this).val(txt.replace(regx,''));
+		    });
+			// 去登录
+			$(".js_to_sign").on("click",function(){
+				$(".register_area").hide();
+				$(".sign_area").show();
+			});
+			// 登录
+			$(".js_sign_btn").on("click",function(){
+				signFunc($(this));
+			});
+			
+			// 去注册
+			$(".js_to_register").on("click",function(){
+				$(".register_area").show();
+				$(".sign_area").hide();
+			});
+			// 注册
+			$(".js_register_btn").on("click",function(){
+				registerFunc($(this));
+			});
+			// 获取验证码
+			$(".js_get_code").on("click",function(){
+				checkpost($(this),"js_mobile");
+			});
+			
+		});
+		// 注册验证
+		function registerFunc(obj){    
+			var _this=obj;
+			var input_txt=[];
+			var regx=/1[1-9]+[0-9]{9}/;
+			$(".register_area .js_input_area").each(function(){
+				input_txt.push($(this).val());
+				return input_txt;
+			});
+			if(input_txt[0]=="" || input_txt[0]==null || input_txt[0]==undefined){
+				msg($m.atten_txt[0],800);
+			}else if(input_txt[0].length<11 || !regx.test(input_txt[0])){
+				msg($m.atten_txt[1],800);
+			}else if(input_txt[1]=="" || input_txt[1]==null || input_txt[1]==undefined){
+				msg($m.atten_txt[2],800);
+			}else if(input_txt[2]=="" || input_txt[2]==null || input_txt[2]==undefined){
+				msg($m.atten_txt[3],800);
+			}else if(input_txt[2].length<6){
+				msg("密码不能少于6位",800);
+			}else if(input_txt[3]=="" || input_txt[3]==null || input_txt[3]==undefined){
+				msg($m.atten_txt[4],800);
+			}else{
+				_this.off("click");
+				_this.text("提交中...");
+				// 赋值
+				$m.user_arr["name"]=input_txt[1];
+				$m.user_arr["mobile"]=input_txt[0];
+				$m.user_arr["yzm"]=input_txt[3];
+				$m.user_arr["password"]=input_txt[2];
+				console.log($m.user_arr);
+				msg("注册成功！马上去登录。","确定",function(){
+					$(".register_area").hide();
+					$(".sign_area").show();
+					$(".sign_area").find(".js_mobile").val($m.user_arr["mobile"]);
+				},true);
+				// window.location.href="index.html";
+				return false;
+				// 请求开始
+				$.ajax({
+					type: "POST",
+					url: $m.ajax_link[0],
+					dataType: "json",
+					data: $m.user_arr,
+					success: function(data){
+
+						console.log("我是原始数据"+data["code"]);
+						if(data["code"]==1){
+							console.log("ok");
+							window.location.href="index.html";
+						}else if(data["code"]==-1){
+							msg(data["msg"],"确定");
+				            _this.text("注册");
+						    _this.on("click",function(){
+								registerFunc(_this);
+							});
+						}
+					},
+					error: function(XMLHttpRequest,textStatus,errorThrown){
+			            // 请求失败
+			            msg("网络似乎出现了问题，请重试。","确定");
+			            _this.text("注册");
+					    _this.on("click",function(){
+							registerFunc(_this);
+						});
+			        }
+				});
+				
+			}
+		}
+		// 登录验证
+		function signFunc(obj){    
+			var _this=obj;
+			var input_txt=[];
+			var regx=/1[1-9]+[0-9]{9}/;
+			$(".sign_area .js_input_area").each(function(){
+				input_txt.push($(this).val());
+				return input_txt;
+			});
+			console.log(input_txt);
+			if(input_txt[0]=="" || input_txt[0]==null || input_txt[0]==undefined){
+				msg($m.atten_txt[0],800);
+			}else if(input_txt[0].length<11 || !regx.test(input_txt[0])){
+				msg($m.atten_txt[1],800);
+			}else if(input_txt[1]=="" || input_txt[1]==null || input_txt[1]==undefined){
+				msg($m.atten_txt[4],800);
+			}else{
+				_this.off("click");
+				_this.text("提交中...");
+				// 赋值
+				$m.user_arr["mobile"]=input_txt[0];
+				$m.user_arr["yzm"]=input_txt[1];
+				console.log($m.user_arr);
+				window.location.href="index.html";
+				return false;
+				// 请求开始
+				$.ajax({
+					type: "POST",
+					url: $m.ajax_link[0],
+					dataType: "json",
+					data: $m.user_arr,
+					success: function(data){
+
+						console.log("我是原始数据"+data["code"]);
+						if(data["code"]==1){
+							console.log("ok");
+							window.location.href="index.html";
+						}else if(data["code"]==-1){
+							msg(data["msg"],"确定");
+				            _this.text("注册");
+						    _this.on("click",function(){
+								signFunc(_this);
+							});
+						}
+					},
+					error: function(XMLHttpRequest,textStatus,errorThrown){
+			            // 请求失败
+			            msg("网络似乎出现了问题，请重试。","确定");
+			            _this.text("注册");
+					    _this.on("click",function(){
+							signFunc(_this);
+						});
+			        }
+				});
+				
+			}
+		}
+		// 验证码
+		function checkpost(obj,input_class){
+				var regPartton=/1[1-9]+[0-9]{9}/;
+				var input_txt=$("."+input_class).val();
+				if(input_txt=="" || input_txt==null || input_txt==undefined){
+					msg($m.atten_txt[0],800);
+				}
+				else if(input_txt.length<11 || !regPartton.test(input_txt)){
+					msg($m.atten_txt[1],800);
+				}else{
+					obj.off("click");
+					var timer=null;
+					var seconds=59;
+					// 发送验证码后台切入口
+					obj.css({"color":"#ccc"});
+					obj.text("已发送(60)");
+					timer=setInterval(function(){
+						obj.text("已发送("+seconds+")");
+						seconds--;
+						if(seconds<0){
+							clearInterval(timer);
+							obj.text("重新发送");
+							obj.css({"color":"#fff"});
+							obj.on("click",function(){
+								// $(".info_inp").append('<div class="zhezhao" style="position: absolute;width:100%;height: 5em;top:0;z-index: 20;"></div>');
+								checkpost(obj,input_class);
+							});
+						}
+					},1000);
+					return false;
+					// 请求开始
+					$.ajax({
+						type: "POST",
+						// url: $m.ajax_link[1],
+						url: "get_code",
+						dataType: "json",
+						data: {"mobile":input_txt},
+						success: function(data){
+							if(data["code"]==-1){
+								msg(data["msg"],"确定");
+								clearInterval(timer);
+								obj.text("获取验证码");
+								obj.css({"color":"#fff"});
+							}else{
+								console.log("成功");
+							}
+						},
+						error: function(XMLHttpRequest,textStatus,errorThrown){
+				            // 请求失败
+				            console.log("发送失败！");
+				        }
+					});
+				}
+		}
+		// 获取页面url数据
+		function GetRequest(){ 
+		    var url = location.search; //获取url中"?"符后的字串 
+		    var theRequest = new Object(); 
+		    if (url.indexOf("?") != -1) { 
+		        var str = url.substr(1); 
+		        strs = str.split("&"); 
+		        for(var i = 0; i < strs.length; i ++) { 
+		            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+		        }
+		    } 
+		    return theRequest; 
+		};
+	</script>
+</body>
+</html>

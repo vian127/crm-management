@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>珀莱雅</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<!-- 背景图片 -->
+	<img class="float_pic" src="images/bg1.jpg" alt="背景图片"/>
+	<div class="container list_container">
+		<div class="list_top"></div>
+		<div class="list_content">
+			<!-- 礼品列表 -->
+			<ul class="list_ul">
+				<li>
+					<img src="images/1.jpg" alt="9元">
+					<div class="detail_div">
+						<span class="name_spn">换购靓白肌密泡沫洁面乳 120g</span><br>
+						<!-- 兑换码 -->
+						<span class="exchange_spn">兑换码：<span class="exchange_code">1323 4849</span></span><br/>
+						<span class="list_txt">请于2015年8月9日前<br/>莅临全国商场任一柜台完成换购</span>
+					</div>
+					<!-- 盖章  如果要显示去掉class="hide"-->
+					<img class="list_pic1 hide" src="images/2.png" alt="已失效"/>
+					<img class="list_pic2 hide" src="images/1.png" alt="已兑换"/>
+				</li>
+				<li>
+					<img src="images/2.jpg" alt="15元">
+					<div class="detail_div">
+						<span class="name_spn">靓白肌密超级名模BB霜 40g</span><br>
+						<!-- 兑换码 -->
+						<span class="exchange_spn">兑换码：<span class="exchange_code">1323 4849</span></span><br/>
+						<span class="list_txt">请于2015年8月9日前<br/>莅临全国商场任一柜台完成换购</span>
+					</div>
+					<!-- 盖章 -->
+					<img class="list_pic1 hide" src="images/2.png" alt="已失效"/>
+					<img class="list_pic2 hide" src="images/1.png" alt="已兑换"/>
+				</li>
+				<li>
+					<img src="images/3.jpg" alt="24元">
+					<div class="detail_div">
+						<span class="name_spn">早晚水特惠套盒</span><br>
+						<!-- 兑换码 -->
+						<span class="exchange_spn">兑换码：<span class="exchange_code">1323 4849</span></span><br/>
+						<span class="list_txt">请于2015年8月9日前<br/>莅临全国商场任一柜台完成换购</span>
+					</div>
+					<!-- 盖章 -->
+					<img class="list_pic1 hide" src="images/2.png" alt="已失效"/>
+					<img class="list_pic2 hide" src="images/1.png" alt="已兑换"/>
+				</li>
+			</ul>
+		</div>
+		<a class="btn list_btn" href="index.html"><img src="images/btn9.png" alt="返回首页"/></a>
+	</div>
+	<script type="text/javascript">
+		//调整布局
+		$(function(){rs();});
+		$(window).resize(function(){rs();});
+		var rs=function(){
+			var dw=document.documentElement.clientWidth;
+			var dh=document.documentElement.clientHeight;
+			$("body").css({"font-size":1*dw/360+"em"});
+			var ratio=100;
+			if(dh/dw*720<1136){
+				ratio=dh/dw*720/1136*100;
+			}
+		};
+	</script>
+</body>
+</html>

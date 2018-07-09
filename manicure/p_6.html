@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="js/jquery-2.1.4.min.js" ></script>
+        <script src="js/frame.js" ></script>
+    </head>
+    <body class="um-vp">
+        <div class="container">
+            <!-- 取消删除 -->
+            <a class="btn1 js_btn1 return_edit" href="javascript:;">返回</a>
+            <!-- 选色 -->
+            <div class="page" data-num="2">
+                <div class="bg_color2" style="padding: 2em 0em">
+                    <div class="show_box">
+                        <!-- 生成页面的时候判断是否需要加删除按钮 代码既是 class=del_pan的元素 -->
+                        <a class="btn1 js_btn3" href="javascript:;">
+                            <!-- 删除 -->
+                            <a class="del_btn js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                            <img src="images/9.png" alt="选择图色"/><br/>
+                            <span class="font12 js_name_chioce">清新裸粉</span>
+                            <span class="num_spn bg_color3">7</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- 其他近似色 -->
+                <h2 class="other_color"><span>&nbsp;</span>其他近似色</h2>
+                <ul class="other_list">
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                    <li><a class="btn1" href="javascript:;"><img src="images/6.png" alt="图色6"><br/><span class="font08">6西瓜红</span></a>
+                        <!-- 删除 -->
+                        <a class="del_btn del_btn1 js_del" href="javascript:;"><img src="images/del.png" alt="删除"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //调整布局
+            $(function(){rs();});
+                $(window).resize(function(){rs();});
+            var rs=function(){
+                var dw=document.documentElement.clientWidth;
+                var dh=document.documentElement.clientHeight;
+                $("body").css({"font-size":1*dw/360+"em"});
+            }
+            $(function(){
+                m.setcss({"butbg":"#f15b81"});
+                // 取消编辑
+                $(".js_btn1").click(function(){
+                    $(this).css({"opacity":0})
+                    $(".del_btn").hide();
+                });
+                // 删除图色
+                var time_touch=0;
+                var timer=null;
+                $(document).on("touchstart",function(){
+                    time_touch=0;
+                    timer=setInterval(function(){
+                        time_touch++;
+                    },500);
+                });
+                $(document).on("touchend",function(){
+                    var a=$(this);
+                    clearInterval(timer);
+                    if(time_touch>=1){
+                        $(".del_btn").show();
+                        $(".return_edit").css({"opacity":1});
+                    }
+                });
+                // 删除图片
+                $(document).on("click",".js_del",function(){
+                    var a=$(this);
+                    msg("确定删除此图色吗？",["确定","取消"],function(){
+                        a.parent().remove();
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
